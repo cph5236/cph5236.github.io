@@ -1,0 +1,111 @@
+/* Custom styles for portfolio */
+
+body {
+    background-color: #001f3f; /* deep navy blue */
+    color: #f1f1f1;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Roboto', sans-serif;
+}
+
+main {
+    flex: 1;
+    padding-bottom: 1rem;
+}
+
+/* Navbar modifications */
+#main-nav {
+    background-color: #002966; /* slightly lighter blue */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+body {
+    padding-top: 60px; /* space for fixed navbar */
+}
+#main-nav .nav-links {
+    display: flex;
+}
+#main-nav .nav-btn {
+    background-color: #ff851b;
+    color: #001f3f;
+    border: none;
+    margin-left: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+#main-nav .nav-btn:hover,
+#main-nav .nav-btn.active {
+    background-color: #ff9f43;
+    color: #001f3f;
+}
+
+/* Section spacing and backgrounds */
+section {
+    padding: 4rem 0;
+}
+section:nth-of-type(odd) {
+    background-color: #001a33;
+}
+
+.hero {
+    text-align: center;
+    padding: 6rem 2rem;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    background-color: #001a33 !important;
+}
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+}
+.hero p {
+    font-size: 1.2rem;
+}
+
+/* Skills section */
+#skills {
+    padding: 4rem 2rem;
+}
+
+#skills header {
+    margin-bottom: 2rem;
+}
+
+#skills .list-unstyled li {
+    margin-bottom: 0.75rem;
+}
+
+/* CV viewer full-height container */
+.cv-container {
+    flex: 1;
+    display: flex;
+}
+.cv-container embed {
+    width: 100%;
+    height: 100%;
+}
+
+/* CV viewer full-height container */
+.cv-container {
+    flex: 1;
+    display: flex;
+}
+.cv-container embed {
+    width: 100%;
+    height: 100%;
+}
+
+/* modal overlay fix */
+.modal {z-index:2000 !important;}
+.modal-backdrop {z-index:1990 !important;}

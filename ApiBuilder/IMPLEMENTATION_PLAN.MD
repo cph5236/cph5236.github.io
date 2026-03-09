@@ -1,21 +1,21 @@
 # API Request Builder - Implementation Plan
 
-## STEP 1: Project Setup & Basic Structure
-- [ ] Create `api-builder.html`
-- [ ] Create `assets/js/api-storage.js` (localStorage manager)
-- [ ] Create `assets/js/api-builder.js` (main app)
-- [ ] Create `assets/css/api-builder.css`
-- [ ] Add API Builder link to portfolio nav
-- [ ] Test: Page loads with dark/light theme support
+## STEP 1: Project Setup & Basic Structure - Complete
+- [X] Create `apibuilder/api-builder.html`
+- [X]Create `assets/js/api-storage.js` (localStorage manager)
+- [X] Create `assets/js/api-builder.js` (main app)
+- [X] Create `assets/css/api-builder.css`
+- [x] Add API Builder link to Projects section 
+- [x] Test: Page loads with dark/light theme support 
 
 ## STEP 2: Sidebar - Folder & Request Management
-- [ ] Create folder tree UI
-- [ ] Implement "Create Folder" + modal
-- [ ] Implement "Create Request" (with method dropdown)
-- [ ] Color-coded method badges (GET/POST/PUT/DELETE)
-- [ ] Delete folders/requests
-- [ ] Connect to localStorage
-- [ ] Test: Can create/save/load folders and requests
+- [X] Create folder tree UI
+- [X] Implement "Create Folder" + modal
+- [X] Implement "Create Request" (with method dropdown)
+- [X] Color-coded method badges (GET/POST/PUT/DELETE)
+- [X] Delete folders/requests
+- [X] Connect to localStorage
+- [X] Test: Can create/save/load folders and requests
 
 ## STEP 3: Main Area - Method & URL Bar
 - [ ] Method selector dropdown

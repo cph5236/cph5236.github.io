@@ -1,0 +1,110 @@
+/* API Builder - Sidebar & Layout */
+
+/* Full-height layout below navbar */
+main {
+    height: calc(100vh - 70px);
+}
+
+main .row {
+    height: 100%;
+}
+
+/* Sidebar */
+#sidebar {
+    background-color: var(--bs-secondary-bg);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-header {
+    flex-shrink: 0;
+}
+
+.sidebar-body {
+    flex: 1;
+    min-height: 0;
+}
+
+/* Folder items */
+.folder-header {
+    transition: background-color 0.15s ease;
+}
+
+.folder-header:hover {
+    background-color: var(--bs-tertiary-bg);
+}
+
+.folder-chevron {
+    font-size: 0.6rem;
+    display: inline-block;
+    transition: transform 0.2s ease;
+    color: var(--bs-secondary-color);
+}
+
+.folder-chevron.open {
+    transform: rotate(90deg);
+}
+
+.folder-name {
+    color: var(--bs-body-color);
+}
+
+.folder-actions {
+    opacity: 0;
+    transition: opacity 0.15s ease;
+}
+
+.folder-header:hover .folder-actions {
+    opacity: 1;
+}
+
+/* Request items */
+.request-item {
+    transition: background-color 0.15s ease;
+    cursor: pointer;
+}
+
+.request-item:hover {
+    background-color: var(--bs-tertiary-bg);
+}
+
+.request-item.active {
+    background-color: rgba(255, 193, 7, 0.15);
+    border-left: 2px solid var(--accent-color);
+}
+
+.request-item .btn-delete-request {
+    opacity: 0;
+    transition: opacity 0.15s ease;
+}
+
+.request-item:hover .btn-delete-request {
+    opacity: 1;
+}
+
+/* Method badge colors (uses Bootstrap text utilities in JS, this just sizes them) */
+.method-badge {
+    font-size: 0.7rem;
+    min-width: 2.5rem;
+    text-align: center;
+}
+
+/* Empty state */
+#empty-state {
+    min-height: 50vh;
+}
+
+/* Responsive: stack sidebar on small screens */
+@media (max-width: 991.98px) {
+    #sidebar {
+        height: auto;
+        max-height: 40vh;
+        border-end-end-radius: 0;
+        border-bottom: 1px solid var(--bs-border-color);
+    }
+
+    main {
+        height: auto;
+    }
+}

@@ -1,0 +1,226 @@
+/* API Builder - Sidebar & Layout */
+
+/* Full-height layout below navbar */
+main {
+    height: calc(100vh - 70px);
+}
+
+main .row {
+    height: 100%;
+}
+
+/* Sidebar */
+#sidebar {
+    background-color: var(--bs-secondary-bg);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-header {
+    flex-shrink: 0;
+}
+
+.sidebar-body {
+    flex: 1;
+    min-height: 0;
+}
+
+/* Folder items */
+.folder-header {
+    transition: background-color 0.15s ease;
+}
+
+.folder-header:hover {
+    background-color: var(--bs-tertiary-bg);
+}
+
+.folder-chevron {
+    font-size: 0.6rem;
+    display: inline-block;
+    transition: transform 0.2s ease;
+    color: var(--bs-secondary-color);
+}
+
+.folder-chevron.open {
+    transform: rotate(90deg);
+}
+
+.folder-name {
+    color: var(--bs-body-color);
+}
+
+.folder-actions {
+    opacity: 0;
+    transition: opacity 0.15s ease;
+}
+
+.folder-header:hover .folder-actions {
+    opacity: 1;
+}
+
+/* Request items */
+.request-item {
+    transition: background-color 0.15s ease;
+    cursor: pointer;
+}
+
+.request-item:hover {
+    background-color: var(--bs-tertiary-bg);
+}
+
+.request-item.active {
+    background-color: rgba(255, 193, 7, 0.15);
+    border-left: 2px solid var(--accent-color);
+}
+
+.request-item .request-actions {
+    opacity: 0;
+    transition: opacity 0.15s ease;
+}
+
+.request-item:hover .request-actions {
+    opacity: 1;
+}
+
+/* Method badge colors (uses Bootstrap text utilities in JS, this just sizes them) */
+.method-badge {
+    font-size: 0.7rem;
+    min-width: 2.5rem;
+    text-align: center;
+}
+
+/* Request editor */
+#request-editor {
+    min-height: 0;
+}
+
+/* Method selector dropdown - fixed width so it doesn't jump between GET/DELETE */
+.method-select {
+    width: 8rem;
+    flex-shrink: 0;
+    font-weight: 700;
+    font-size: 0.85rem;
+}
+
+/* Send / Save buttons */
+#btn-send,
+#btn-save {
+    flex-shrink: 0;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+
+/* Editor tabs - golden yellow active state */
+.editor-tabs {
+    border-bottom-color: var(--bs-border-color);
+}
+
+.editor-tabs .nav-link {
+    color: var(--bs-secondary-color);
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    border: none;
+    border-bottom: 2px solid transparent;
+    padding: 0.6rem 1.25rem;
+    transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.editor-tabs .nav-link:hover {
+    color: var(--accent-color);
+    border-bottom-color: rgba(255, 193, 7, 0.3);
+}
+
+.editor-tabs .nav-link.active {
+    color: var(--accent-color);
+    background-color: transparent;
+    border-color: transparent;
+    border-bottom-color: var(--accent-color);
+}
+
+/* Tab content area */
+.tab-content {
+    min-height: 200px;
+}
+
+/* Key-value rows (shared by Headers, Params) */
+.kv-row .form-control-sm {
+    font-size: 0.8rem;
+}
+
+.kv-row .kv-key {
+    flex: 2;
+}
+
+.kv-row .kv-value {
+    flex: 3;
+}
+
+.kv-row .kv-remove {
+    flex-shrink: 0;
+    font-size: 1rem;
+    line-height: 1;
+}
+
+/* Body editor */
+.body-editor {
+    font-size: 0.8rem;
+    resize: vertical;
+    min-height: 160px;
+    line-height: 1.5;
+}
+
+/* Response tab */
+.response-body {
+    font-size: 0.8rem;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-break: break-word;
+    max-height: 420px;
+    overflow-y: auto;
+    margin: 0;
+}
+
+.response-headers-body {
+    font-size: 0.75rem;
+    line-height: 1.7;
+}
+
+.response-error-pre {
+    white-space: pre-wrap;
+    font-family: inherit;
+    font-size: 0.85rem;
+}
+
+.response-chevron {
+    font-size: 0.6rem;
+    display: inline-block;
+    transition: transform 0.2s ease;
+    color: var(--bs-secondary-color);
+}
+
+.response-headers-toggle[aria-expanded="true"] .response-chevron {
+    transform: rotate(90deg);
+}
+
+/* Empty state */
+#empty-state {
+    min-height: 50vh;
+}
+
+/* Responsive: stack sidebar on small screens */
+@media (max-width: 991.98px) {
+    #sidebar {
+        height: auto;
+        max-height: 40vh;
+        border-end-end-radius: 0;
+        border-bottom: 1px solid var(--bs-border-color);
+    }
+
+    main {
+        height: auto;
+    }
+}

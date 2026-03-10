@@ -18,29 +18,30 @@
 - [X] Test: Can create/save/load folders and requests
 
 ## STEP 3: Main Area - Method & URL Bar
-- [ ] Method selector dropdown
-- [ ] URL input field
-- [ ] Send & Save buttons
-- [ ] Load request data when selected from sidebar
-- [ ] Basic URL validation
-- [ ] Test: Selections persist to localStorage
+- [X] Method selector dropdown - to edit the method type GET POST PUT DELETE
+- [X] URL input field 
+- [X] Send & Save buttons
+- [X] Load request data when selected from sidebar
+- [X] Basic URL validation
+- [X] Test: Selections persist to localStorage
 
 ## STEP 4: Tabbed Interface
-- [ ] Tab navigation (Headers, Params, Body, Response)
-- [ ] Hide Body tab for GET/DELETE
-- [ ] Tab switching logic
-- [ ] Style with golden yellow active state
+- [X] Tab navigation (Headers, Params, Body, Response)
+- [X] Disable Body tab for GET/DELETE
+- [X] Tab switching logic
+- [X] Style with golden yellow active state
 
 ## STEP 5: Headers Tab
-- [ ] Dynamic key-value table
-- [ ] Add/remove header rows
-- [ ] Preset headers (Content-Type, Authorization, etc.)
-- [ ] Test: Headers save/load correctly
+- [X] Dynamic key-value table
+- [X] Add/remove header rows
+- [X] Preset headers (Content-Type, Authorization, etc.)
+- [X] Test: Headers save/load correctly
 
 ## STEP 6: Params Tab
-- [ ] Dynamic key-value table (similar to Headers)
-- [ ] Auto-append to URL on send
-- [ ] Test: Params appear in final URL
+- [X] Dynamic key-value table (similar to Headers)
+- [X] Auto-append to URL on send
+- [X] Test: Params appear in final URL
+- [X] At the bottom of Params tab construct what the final URL would be as an example Appending Params correctly
 
 ## STEP 7: Body Tab
 - [ ] JSON textarea editor

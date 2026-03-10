@@ -59,11 +59,84 @@
                     </div>
                 </aside>
 
-                <!-- Main content area (placeholder for future steps) -->
-                <div class="col-lg-9 col-xl-10 p-4">
-                    <div id="empty-state" class="d-flex flex-column align-items-center justify-content-center h-100 text-muted">
+                <!-- Main content area -->
+                <div class="col-lg-9 col-xl-10 p-4 d-flex flex-column">
+                    <!-- Empty state (shown when no request selected) -->
+                    <div id="empty-state" class="d-flex flex-column align-items-center justify-content-center flex-grow-1 text-muted">
                         <h4 class="mb-2">API Request Builder</h4>
                         <p>Create a folder and add requests to get started.</p>
+                    </div>
+
+                    <!-- Request editor (hidden until a request is selected) -->
+                    <div id="request-editor" class="d-none flex-column flex-grow-1">
+                        <!-- Method + URL bar -->
+                        <div class="d-flex gap-2 mb-3">
+                            <select class="form-select method-select" id="editor-method">
+                                <option value="GET">GET</option>
+                                <option value="POST">POST</option>
+                                <option value="PUT">PUT</option>
+                                <option value="DELETE">DELETE</option>
+                            </select>
+                            <input type="text" class="form-control" id="editor-url" placeholder="https://api.example.com/endpoint">
+                            <button class="btn btn-warning" id="btn-send" disabled>Send</button>
+                            <button class="btn btn-outline-warning" id="btn-save">Save</button>
+                        </div>
+
+                        <!-- Validation message -->
+                        <div id="url-validation" class="text-danger small mb-2 d-none"></div>
+
+                        <!-- Tabbed interface -->
+                        <ul class="nav nav-tabs editor-tabs" id="editorTabs" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="tab-headers" data-bs-toggle="tab" data-bs-target="#panel-headers" type="button" role="tab">Headers</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="tab-params" data-bs-toggle="tab" data-bs-target="#panel-params" type="button" role="tab">Params</button>
+                            </li>
+                            <li class="nav-item" id="tab-body-item" role="presentation">
+                                <button class="nav-link" id="tab-body" data-bs-toggle="tab" data-bs-target="#panel-body" type="button" role="tab">Body</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="tab-response" data-bs-toggle="tab" data-bs-target="#panel-response" type="button" role="tab">Response</button>
+                            </li>
+                        </ul>
+                        <div class="tab-content flex-grow-1 border border-secondary border-top-0 rounded-bottom overflow-auto" id="editorTabContent">
+                            <div class="tab-pane fade show active p-3" id="panel-headers" role="tabpanel">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <div class="dropdown">
+                                        <button class="btn btn-sm btn-outline-warning dropdown-toggle" type="button" data-bs-toggle="dropdown">Presets</button>
+                                        <ul class="dropdown-menu" id="header-presets">
+                                            <li><a class="dropdown-item" href="#" data-key="Content-Type" data-value="application/json">Content-Type: application/json</a></li>
+                                            <li><a class="dropdown-item" href="#" data-key="Authorization" data-value="Bearer ">Authorization: Bearer</a></li>
+                                            <li><a class="dropdown-item" href="#" data-key="Accept" data-value="application/json">Accept: application/json</a></li>
+                                            <li><a class="dropdown-item" href="#" data-key="X-API-Key" data-value="">X-API-Key</a></li>
+                                        </ul>
+                                    </div>
+                                    <button class="btn btn-sm btn-outline-warning" id="btn-add-header">+ Add Header</button>
+                                </div>
+                                <div id="headers-table-container">
+                                    <!-- Header rows rendered by JS -->
+                                </div>
+                            </div>
+                            <div class="tab-pane fade p-3" id="panel-params" role="tabpanel">
+                                <div class="d-flex justify-content-end mb-2">
+                                    <button class="btn btn-sm btn-outline-warning" id="btn-add-param">+ Add Param</button>
+                                </div>
+                                <div id="params-table-container">
+                                    <!-- Param rows rendered by JS -->
+                                </div>
+                                <div id="params-url-preview" class="mt-3 p-2 rounded border border-secondary d-none">
+                                    <small class="text-muted d-block mb-1">Constructed URL:</small>
+                                    <code class="small text-break" id="params-url-preview-text"></code>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade p-3" id="panel-body" role="tabpanel">
+                                <p class="text-muted mb-0">Body editor (Step 7)</p>
+                            </div>
+                            <div class="tab-pane fade p-3" id="panel-response" role="tabpanel">
+                                <p class="text-muted mb-0">Response viewer (Step 8)</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

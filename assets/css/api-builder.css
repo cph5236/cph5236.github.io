@@ -90,6 +90,81 @@ main .row {
     text-align: center;
 }
 
+/* Request editor */
+#request-editor {
+    min-height: 0;
+}
+
+/* Method selector dropdown - fixed width so it doesn't jump between GET/DELETE */
+.method-select {
+    width: 8rem;
+    flex-shrink: 0;
+    font-weight: 700;
+    font-size: 0.85rem;
+}
+
+/* Send / Save buttons */
+#btn-send,
+#btn-save {
+    flex-shrink: 0;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+
+/* Editor tabs - golden yellow active state */
+.editor-tabs {
+    border-bottom-color: var(--bs-border-color);
+}
+
+.editor-tabs .nav-link {
+    color: var(--bs-secondary-color);
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    border: none;
+    border-bottom: 2px solid transparent;
+    padding: 0.6rem 1.25rem;
+    transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.editor-tabs .nav-link:hover {
+    color: var(--accent-color);
+    border-bottom-color: rgba(255, 193, 7, 0.3);
+}
+
+.editor-tabs .nav-link.active {
+    color: var(--accent-color);
+    background-color: transparent;
+    border-color: transparent;
+    border-bottom-color: var(--accent-color);
+}
+
+/* Tab content area */
+.tab-content {
+    min-height: 200px;
+}
+
+/* Key-value rows (shared by Headers, Params) */
+.kv-row .form-control-sm {
+    font-size: 0.8rem;
+}
+
+.kv-row .kv-key {
+    flex: 2;
+}
+
+.kv-row .kv-value {
+    flex: 3;
+}
+
+.kv-row .kv-remove {
+    flex-shrink: 0;
+    font-size: 1rem;
+    line-height: 1;
+}
+
 /* Empty state */
 #empty-state {
     min-height: 50vh;

@@ -51,39 +51,39 @@
 - [X] Test: Body saves/loads
 
 ## STEP 8: Response Tab
-- [ ] Display status code (color-coded: green success, red error)
-- [ ] Show response headers
-- [ ] Show formatted response body (JSON)
-- [ ] Display response time
-- [ ] Copy response button with Copy SVG icon
+- [X] Display status code (color-coded: green success, red error)
+- [X] Show response headers
+- [X] Show formatted response body (JSON)
+- [X] Display response time
+- [X] Copy response button with Copy SVG icon
 
 ## STEP 9: API Request Execution
-- [ ] Fetch-based request sender
-- [ ] Handle CORS limitations (explain to user)
-- [ ] Request timeout handling
-- [ ] Loading state on Send button
-- [ ] Error handling (network, timeout, invalid response)
-- [ ] Test: Send GET, POST, PUT to public APIs
+- [X] Fetch-based request sender
+- [X] Handle CORS limitations (explain to user)
+- [X] Request timeout handling
+- [X] Loading state on Send button
+- [X] Error handling (network, timeout, invalid response)
+- [X] Test: Send GET, POST, PUT to public APIs
 
 ## STEP 10: Export/Import Functionality
-- [ ] Export button → download JSON file
-- [ ] Import button with file uploader
-- [ ] Validate imported data
-- [ ] Merge or replace dialog
-- [ ] Test: Export and re-import successfully
+- [X] Export button → download JSON file
+- [X] Import button with file uploader
+- [X] Validate imported data
+- [X] Merge or replace dialog
+- [X] Test: Export and re-import successfully
 
 ## STEP 11: Rename & Organization
-- [ ] Rename folders
-- [ ] Rename requests
-- [ ] Test: Changes persist
+- [X] Rename folders
+- [X] Rename requests
+- [X] Test: Changes persist
 
 ## STEP 12: Polish & Edge Cases
-- [ ] Empty states
-- [ ] Confirmation dialogs for deletions
-- [ ] Better error messages
-- [ ] Tooltip help text
-- [ ] Mobile responsiveness
-- [ ] Cross-browser testing
+- [X] Empty states
+- [X] Confirmation dialogs for deletions
+- [X] Better error messages
+- [X] Tooltip help text
+- [X] Mobile responsiveness
+- [X] Cross-browser testing
 
 ---
 

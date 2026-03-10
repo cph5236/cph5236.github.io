@@ -88,6 +88,50 @@ const ApiStorage = (() => {
         return request;
     }
 
+    // ---- Rename ----
+
+    function renameFolder(folderId, newName) {
+        const data = load();
+        const folder = data.folders.find(f => f.id === folderId);
+        if (!folder) return null;
+        folder.name = newName.trim();
+        save(data);
+        return folder;
+    }
+
+    function renameRequest(folderId, requestId, newName) {
+        const data = load();
+        const folder = data.folders.find(f => f.id === folderId);
+        if (!folder) return null;
+        const request = folder.requests.find(r => r.id === requestId);
+        if (!request) return null;
+        request.name = newName.trim();
+        save(data);
+        return request;
+    }
+
+    // ---- Export / Import ----
+
+    function exportData() {
+        return load();
+    }
+
+    function importData(incoming, mode) {
+        if (mode === 'replace') {
+            save(incoming);
+            return;
+        }
+        // merge: append folders, regenerate all IDs to avoid collisions
+        const data = load();
+        const existingFolderIds = new Set(data.folders.map(f => f.id));
+        incoming.folders.forEach(folder => {
+            const imported = { ...folder, requests: (folder.requests || []).map(r => ({ ...r, id: generateId() })) };
+            if (existingFolderIds.has(imported.id)) imported.id = generateId();
+            data.folders.push(imported);
+        });
+        save(data);
+    }
+
     return {
         getFolders,
         createFolder,
@@ -96,6 +140,10 @@ const ApiStorage = (() => {
         createRequest,
         deleteRequest,
         getRequest,
-        updateRequest
+        updateRequest,
+        renameFolder,
+        renameRequest,
+        exportData,
+        importData
     };
 })();

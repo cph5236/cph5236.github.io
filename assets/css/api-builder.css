@@ -74,12 +74,12 @@ main .row {
     border-left: 2px solid var(--accent-color);
 }
 
-.request-item .btn-delete-request {
+.request-item .request-actions {
     opacity: 0;
     transition: opacity 0.15s ease;
 }
 
-.request-item:hover .btn-delete-request {
+.request-item:hover .request-actions {
     opacity: 1;
 }
 
@@ -171,6 +171,39 @@ main .row {
     resize: vertical;
     min-height: 160px;
     line-height: 1.5;
+}
+
+/* Response tab */
+.response-body {
+    font-size: 0.8rem;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-break: break-word;
+    max-height: 420px;
+    overflow-y: auto;
+    margin: 0;
+}
+
+.response-headers-body {
+    font-size: 0.75rem;
+    line-height: 1.7;
+}
+
+.response-error-pre {
+    white-space: pre-wrap;
+    font-family: inherit;
+    font-size: 0.85rem;
+}
+
+.response-chevron {
+    font-size: 0.6rem;
+    display: inline-block;
+    transition: transform 0.2s ease;
+    color: var(--bs-secondary-color);
+}
+
+.response-headers-toggle[aria-expanded="true"] .response-chevron {
+    transform: rotate(90deg);
 }
 
 /* Empty state */

@@ -24,6 +24,7 @@
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <div class="navbar-nav gap-2">
+                    <button class="btn btn-outline-warning nav-btn" id="btn-try-it-out">Try it out!</button>
                     <a class="btn btn-warning nav-btn" href="../index.html#projects">BACK TO PORTFOLIO</a>
                     <div class="btn-group" role="group" aria-label="Page Theme toggle button group">
                         <input type="radio" class="btn-check" name="btnradio" id="LightTheme" autocomplete="off">
@@ -52,8 +53,19 @@
                 <aside id="sidebar" class="col-lg-3 col-xl-2 p-0 border-end border-secondary">
                     <div class="sidebar-header d-flex justify-content-between align-items-center p-3 border-bottom border-secondary">
                         <h6 class="mb-0 text-warning fw-bold text-uppercase">Collections</h6>
-                        <button class="btn btn-sm btn-warning" id="btn-new-folder" title="New Folder">+ Folder</button>
+                        <div class="d-flex gap-1 align-items-center">
+                            <button class="btn btn-sm btn-warning" id="btn-new-folder" title="New Folder">+ Folder</button>
+                            <div class="dropdown">
+                                <button class="btn btn-sm btn-outline-warning px-2" type="button" data-bs-toggle="dropdown" aria-expanded="false" title="More actions">⋮</button>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a class="dropdown-item small" href="#" id="btn-export">⬇ Export Collections</a></li>
+                                    <li><a class="dropdown-item small" href="#" id="btn-import-trigger">⬆ Import Collections</a></li>
+                                </ul>
+                            </div>
+                            <input type="file" id="import-file-input" accept=".json" class="d-none">
+                        </div>
                     </div>
+                    <div id="sidebar-alert" class="d-none px-2 pt-2"></div>
                     <div id="folder-tree" class="sidebar-body overflow-auto p-2">
                         <!-- Folder tree rendered by JS -->
                     </div>
@@ -64,7 +76,12 @@
                     <!-- Empty state (shown when no request selected) -->
                     <div id="empty-state" class="d-flex flex-column align-items-center justify-content-center flex-grow-1 text-muted">
                         <h4 class="mb-2">API Request Builder</h4>
-                        <p>Create a folder and add requests to get started.</p>
+                        <p class="mb-3">Select a request from the sidebar to get started.</p>
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-warning" id="btn-new-folder-empty" title="Create a new folder in the sidebar">+ New Folder</button>
+                            <button class="btn btn-outline-warning" id="btn-empty-try-it-out" title="Load a sample collection with httpbin.org requests">Try it out!</button>
+                        </div>
+                        <p class="small mt-3 text-muted opacity-75">Need ideas? <strong>Try it out!</strong> imports a free sample collection.</p>
                     </div>
 
                     <!-- Request editor (hidden until a request is selected) -->
@@ -139,7 +156,55 @@
                                 <div id="body-validation" class="text-danger small mt-2 d-none"></div>
                             </div>
                             <div class="tab-pane fade p-3" id="panel-response" role="tabpanel">
-                                <p class="text-muted mb-0">Response viewer (Step 8)</p>
+                                <!-- Empty state -->
+                                <div id="response-empty" class="text-center text-muted py-5">
+                                    <p class="small mb-0">Hit <strong>Send</strong> to get a response.</p>
+                                </div>
+
+                                <!-- Loading state -->
+                                <div id="response-loading" class="d-none text-center py-5">
+                                    <div class="spinner-border spinner-border-sm text-warning me-2" role="status" aria-hidden="true"></div>
+                                    <span class="text-muted small">Sending request…</span>
+                                </div>
+
+                                <!-- Error state -->
+                                <div id="response-error" class="d-none">
+                                    <div class="p-3 rounded border border-danger bg-danger bg-opacity-10">
+                                        <div class="fw-semibold text-danger small mb-1">Request Failed</div>
+                                        <pre id="response-error-msg" class="text-danger small mb-0 response-error-pre"></pre>
+                                    </div>
+                                </div>
+
+                                <!-- Response content -->
+                                <div id="response-content" class="d-none">
+                                    <!-- Status / meta bar -->
+                                    <div class="d-flex align-items-center gap-2 mb-3 flex-wrap">
+                                        <span id="response-status" class="fw-bold"></span>
+                                        <span class="text-muted">·</span>
+                                        <span id="response-time" class="text-muted small"></span>
+                                        <span class="text-muted">·</span>
+                                        <span id="response-size" class="text-muted small"></span>
+                                        <button class="btn btn-sm btn-outline-warning ms-auto" id="btn-copy-response">Copy</button>
+                                    </div>
+
+                                    <!-- Response headers (collapsible) -->
+                                    <div class="mb-3">
+                                        <button class="btn btn-sm d-flex align-items-center gap-1 px-0 border-0 response-headers-toggle"
+                                                type="button" data-bs-toggle="collapse" data-bs-target="#response-headers-panel" aria-expanded="false">
+                                            <span class="response-chevron">&#9654;</span>
+                                            <span class="small fw-semibold text-muted" id="response-headers-label">Response Headers</span>
+                                        </button>
+                                        <div class="collapse" id="response-headers-panel">
+                                            <div id="response-headers" class="mt-2 p-2 rounded border border-secondary font-monospace response-headers-body"></div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Response body -->
+                                    <div>
+                                        <small class="text-muted d-block mb-1">Response Body</small>
+                                        <pre id="response-body" class="response-body p-3 rounded border border-secondary font-monospace mb-0"></pre>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -187,6 +252,97 @@
                 <div class="modal-footer border-warning">
                     <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
                     <button type="button" class="btn btn-warning btn-sm" id="btn-confirm-request">Create</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rename Modal -->
+    <div class="modal fade" id="renameModal" tabindex="-1" aria-labelledby="renameModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-content border-warning">
+                <div class="modal-header border-warning">
+                    <h5 class="modal-title" id="renameModalLabel">Rename</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" class="form-control" id="rename-input" placeholder="New name" maxlength="50">
+                </div>
+                <div class="modal-footer border-warning">
+                    <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-warning btn-sm" id="btn-confirm-rename">Rename</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Import Collections Modal -->
+    <div class="modal fade" id="importModal" tabindex="-1" aria-labelledby="importModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-warning">
+                <div class="modal-header border-warning">
+                    <h5 class="modal-title" id="importModalLabel">Import Collections</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="import-preview" class="small text-muted mb-3"></p>
+                    <p class="small mb-3">How would you like to import?</p>
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-warning btn-sm" id="btn-import-merge">
+                            Merge — add to existing collections
+                        </button>
+                        <button class="btn btn-outline-danger btn-sm" id="btn-import-replace">
+                            Replace — overwrite all current collections
+                        </button>
+                    </div>
+                </div>
+                <div class="modal-footer border-warning">
+                    <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Try It Out Modal -->
+    <div class="modal fade" id="tryItOutModal" tabindex="-1" aria-labelledby="tryItOutModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content border-warning">
+                <div class="modal-header border-warning">
+                    <h5 class="modal-title" id="tryItOutModalLabel">Try it out!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="small text-muted mb-1">
+                        A sample collection using <strong>httpbin.org</strong> — a free, CORS-enabled echo API. All requests will work directly from this builder.
+                    </p>
+                    <p class="small text-muted mb-3">
+                        Copy the JSON below to use in other tools like <a href="https://hoppscotch.io" target="_blank" rel="noopener" class="link-warning">Hoppscotch</a>, or click <strong>Import into App</strong> to load it directly.
+                    </p>
+                    <textarea class="form-control font-monospace small" id="try-it-out-json" rows="14" readonly spellcheck="false"></textarea>
+                </div>
+                <div class="modal-footer border-warning">
+                    <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-outline-warning btn-sm" id="btn-copy-example">Copy JSON</button>
+                    <button type="button" class="btn btn-warning btn-sm" id="btn-import-example">Import into App</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="modal fade" id="deleteConfirmModal" tabindex="-1" aria-labelledby="deleteConfirmModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-content border-danger">
+                <div class="modal-header border-danger">
+                    <h5 class="modal-title" id="deleteConfirmModalLabel">Confirm Delete</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="small mb-0" id="delete-confirm-message"></p>
+                </div>
+                <div class="modal-footer border-danger">
+                    <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger btn-sm" id="btn-confirm-delete">Delete</button>
                 </div>
             </div>
         </div>

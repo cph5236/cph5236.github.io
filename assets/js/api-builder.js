@@ -33,6 +33,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnAddHeader = document.getElementById('btn-add-header');
     const headerPresets = document.getElementById('header-presets');
 
+    // Body tab elements
+    const bodyEditor = document.getElementById('body-editor');
+    const btnFormatBody = document.getElementById('btn-format-body');
+    const bodyValidation = document.getElementById('body-validation');
+
     // Params tab elements
     const paramsContainer = document.getElementById('params-table-container');
     const btnAddParam = document.getElementById('btn-add-param');
@@ -204,6 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
         validateUrl();
         renderHeaders(req.headers);
         renderParams(req.params);
+        renderBody(req.body);
 
         // Reset to Headers tab
         bootstrap.Tab.getOrCreateInstance(tabHeaders).show();
@@ -224,6 +230,7 @@ document.addEventListener('DOMContentLoaded', () => {
         hideUrlValidation();
         renderHeaders({});
         renderParams({});
+        renderBody(null);
 
         requestEditor.classList.add('d-none');
         requestEditor.classList.remove('d-flex');
@@ -237,7 +244,8 @@ document.addEventListener('DOMContentLoaded', () => {
             method: editorMethod.value,
             url: editorUrl.value.trim(),
             headers: getHeadersFromUI(),
-            params: getParamsFromUI()
+            params: getParamsFromUI(),
+            body: getBodyFromUI()
         };
         ApiStorage.updateRequest(selectedFolderId, selectedRequestId, updates);
         // Re-render sidebar to update method badge
@@ -374,6 +382,47 @@ document.addEventListener('DOMContentLoaded', () => {
             const row = createHeaderRow(key, value);
             headersContainer.appendChild(row);
             row.querySelector('.kv-value').focus();
+        }
+    });
+
+    // ---- Body tab ----
+    function renderBody(body) {
+        bodyEditor.value = body || '';
+        validateBodyJson();
+    }
+
+    function getBodyFromUI() {
+        return bodyEditor.value;
+    }
+
+    function validateBodyJson() {
+        const val = bodyEditor.value.trim();
+        if (!val) {
+            bodyValidation.classList.add('d-none');
+            bodyValidation.textContent = '';
+            return;
+        }
+        try {
+            JSON.parse(val);
+            bodyValidation.classList.add('d-none');
+            bodyValidation.textContent = '';
+        } catch (e) {
+            bodyValidation.textContent = `Invalid JSON: ${e.message}`;
+            bodyValidation.classList.remove('d-none');
+        }
+    }
+
+    bodyEditor.addEventListener('input', validateBodyJson);
+
+    btnFormatBody.addEventListener('click', () => {
+        const val = bodyEditor.value.trim();
+        if (!val) return;
+        try {
+            bodyEditor.value = JSON.stringify(JSON.parse(val), null, 2);
+            bodyValidation.classList.add('d-none');
+            bodyValidation.textContent = '';
+        } catch {
+            validateBodyJson();
         }
     });
 

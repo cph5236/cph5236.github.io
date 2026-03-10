@@ -44,18 +44,18 @@
 - [X] At the bottom of Params tab construct what the final URL would be as an example Appending Params correctly
 
 ## STEP 7: Body Tab
-- [ ] JSON textarea editor
-- [ ] Prettify/format button
-- [ ] JSON validation with error display
-- [ ] Only show for POST/PUT
-- [ ] Test: Body saves/loads
+- [X] JSON textarea editor
+- [X] Prettify/format button
+- [X] JSON validation with error display
+- [X] Only show for POST/PUT
+- [X] Test: Body saves/loads
 
 ## STEP 8: Response Tab
 - [ ] Display status code (color-coded: green success, red error)
 - [ ] Show response headers
 - [ ] Show formatted response body (JSON)
 - [ ] Display response time
-- [ ] Copy response button
+- [ ] Copy response button with Copy SVG icon
 
 ## STEP 9: API Request Execution
 - [ ] Fetch-based request sender

@@ -165,6 +165,14 @@ main .row {
     line-height: 1;
 }
 
+/* Body editor */
+.body-editor {
+    font-size: 0.8rem;
+    resize: vertical;
+    min-height: 160px;
+    line-height: 1.5;
+}
+
 /* Empty state */
 #empty-state {
     min-height: 50vh;

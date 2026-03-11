@@ -410,6 +410,7 @@ document.addEventListener('DOMContentLoaded', () => {
         editorMethod.className = 'form-select method-select';
         const colorClass = METHOD_COLORS[editorMethod.value];
         if (colorClass) editorMethod.classList.add(colorClass);
+        editorMethod.dataset.method = editorMethod.value;
     }
 
     // ---- Body tab visibility (hide for GET/DELETE) ----
@@ -823,15 +824,6 @@ document.addEventListener('DOMContentLoaded', () => {
         deleteConfirmModal.hide();
         deleteContext = null;
         renderFolderTree();
-    });
-
-    // ---- Empty state buttons ----
-    document.getElementById('btn-new-folder-empty').addEventListener('click', () => {
-        folderNameInput.value = '';
-        createFolderModal.show();
-        document.getElementById('createFolderModal').addEventListener('shown.bs.modal', () => {
-            folderNameInput.focus();
-        }, { once: true });
     });
 
     document.getElementById('btn-empty-try-it-out').addEventListener('click', () => {

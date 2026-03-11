@@ -21,6 +21,35 @@ main .row {
     flex-shrink: 0;
 }
 
+/* Prevent header contents from pushing outside the sidebar when space is tight */
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.sidebar-header .d-flex {
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+/* Allow the title to truncate instead of forcing overflow */
+.sidebar-header h5 {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: var(--accent-color) !important;
+    letter-spacing: 0.1em;
+}
+
+/* Make controls shrink if needed and avoid overflowing the header */
+.sidebar-header .d-flex > * {
+    flex-shrink: 0;
+}
+
 .sidebar-body {
     flex: 1;
     min-height: 0;
@@ -70,8 +99,9 @@ main .row {
 }
 
 .request-item.active {
-    background-color: rgba(255, 193, 7, 0.15);
+    background-color: var(--accent-dim);
     border-left: 2px solid var(--accent-color);
+    border-radius: 0 0.375rem 0.375rem 0;
 }
 
 .request-item .request-actions {
@@ -83,12 +113,33 @@ main .row {
     opacity: 1;
 }
 
+/* Sidebar header buttons — adapt to current accent color */
+.sidebar-header .btn-fill-secondary{
+    color: var(--bs-body-color) !important;
+    border-color: var(--accent-color) !important;
+    background-color: var(--accent-color) !important;
+}
+
+.sidebar-header .btn-fill-secondary:hover{
+    background-color: var(--accent-dim) !important;
+    border-color: var(--accent-color) !important;
+}
+
 /* Method badge colors (uses Bootstrap text utilities in JS, this just sizes them) */
 .method-badge {
-    font-size: 0.7rem;
-    min-width: 2.5rem;
+    font-size: 0.68rem;
+    font-weight: 700;
+    min-width: 2.75rem;
     text-align: center;
+    font-family: 'Roboto Mono', 'Courier New', monospace;
+    letter-spacing: 0.03em;
 }
+
+/* Method select: color the text by current method via data-method attribute (set by JS) */
+.method-select[data-method="GET"]    { color: #3dd68c; font-weight: 700; }
+.method-select[data-method="POST"]   { color: #ffc107; font-weight: 700; }
+.method-select[data-method="PUT"]    { color: #74c0fc; font-weight: 700; }
+.method-select[data-method="DELETE"] { color: #ff6b6b; font-weight: 700; }
 
 /* Request editor */
 #request-editor {
@@ -131,7 +182,7 @@ main .row {
 
 .editor-tabs .nav-link:hover {
     color: var(--accent-color);
-    border-bottom-color: rgba(255, 193, 7, 0.3);
+    border-bottom-color: var(--accent-dim);
 }
 
 .editor-tabs .nav-link.active {
@@ -144,6 +195,7 @@ main .row {
 /* Tab content area */
 .tab-content {
     min-height: 200px;
+    border-color: var(--bs-border-color) !important;
 }
 
 /* Key-value rows (shared by Headers, Params) */
@@ -222,5 +274,15 @@ main .row {
 
     main {
         height: auto;
+    }
+
+    /* On small screens allow header controls to wrap to a new line */
+    .sidebar-header .d-flex {
+        flex-wrap: wrap;
+        gap: 0.4rem;
+    }
+
+    .sidebar-header .d-flex > * {
+        flex-shrink: 1;
     }
 }

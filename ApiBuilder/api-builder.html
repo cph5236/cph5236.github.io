@@ -23,23 +23,35 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <div class="navbar-nav gap-2">
-                    <button class="btn btn-outline-warning nav-btn" id="btn-try-it-out">Try it out!</button>
-                    <a class="btn btn-warning nav-btn" href="../index.html#projects">BACK TO PORTFOLIO</a>
-                    <div class="btn-group" role="group" aria-label="Page Theme toggle button group">
-                        <input type="radio" class="btn-check" name="btnradio" id="LightTheme" autocomplete="off">
-                        <label class="btn btn-outline-warning theme-toggle-btn" for="LightTheme">
-                            <svg class="bi" width="1em" height="1em">
-                                <use href="#sun-fill"></use>
+                <div class="navbar-nav gap-2 align-items-center">
+                    <button class="btn nav-btn" id="btn-try-it-out">Try it out!</button>
+                    <a class="btn nav-btn" href="../index.html#projects">BACK TO PORTFOLIO</a>
+                    <div class="dropdown">
+                        <button class="btn settings-btn" id="settings-btn"
+                                data-bs-toggle="dropdown" data-bs-auto-close="outside"
+                                aria-expanded="false" title="Settings">
+                            <svg class="bi" width="1.1em" height="1.1em">
+                                <use class="btn-icon" href="#gear-fill"></use>
                             </svg>
-                        </label>
-
-                        <input type="radio" class="btn-check" name="btnradio" id="DarkTheme" autocomplete="off" checked>
-                        <label class="btn btn-outline-warning theme-toggle-btn" for="DarkTheme">
-                            <svg class="bi" width="1em" height="1em">
-                                <use href="#moon-stars-fill"></use>
-                            </svg>
-                        </label>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end settings-dropdown" aria-labelledby="settings-btn">
+                            <div class="settings-section-title">Theme</div>
+                            <div class="btn-group w-100" role="group" aria-label="Page Theme toggle">
+                                <input type="radio" class="btn-check" name="btnradio" id="LightTheme" autocomplete="off">
+                                <label class="btn theme-toggle-btn flex-grow-1" for="LightTheme">
+                                    <svg class="bi" width="1em" height="1em"><use href="#sun-fill"></use></svg>
+                                    Light
+                                </label>
+                                <input type="radio" class="btn-check" name="btnradio" id="DarkTheme" autocomplete="off" checked>
+                                <label class="btn theme-toggle-btn flex-grow-1" for="DarkTheme">
+                                    <svg class="bi" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
+                                    Dark
+                                </label>
+                            </div>
+                            <hr class="my-2" style="border-color: var(--accent-dim)">
+                            <div class="settings-section-title">Accent Color</div>
+                            <div id="accent-picker-container" class="mt-1"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -52,16 +64,16 @@
                 <!-- Sidebar -->
                 <aside id="sidebar" class="col-lg-3 col-xl-2 p-0 border-end border-secondary">
                     <div class="sidebar-header d-flex justify-content-between align-items-center p-3 border-bottom border-secondary">
-                            <h6 class="mb-0 text-warning fw-bold text-uppercase">Collections</h6>
+                            <h5 class="mb-0 fw-bold text-uppercase">Collections</h5>
                         <div class="d-flex gap-1 align-items-center">
-                            <button class="btn btn-sm btn-warning" id="btn-new-folder" title="New Folder">
-                                <svg class="bi" width="1.5em" height="1.5em" aria-hidden="true" focusable="false">
-                                    <use href="#folder-fill"></use>
+                            <button class="btn btn-sm btn-fill-secondary" id="btn-new-folder" title="New Folder">
+                                <svg class="bi" width="2em" height="2em" aria-hidden="true" focusable="false">
+                                    <use class = "btn-icon" href="#folder-fill"></use>
                                 </svg>
                                 <span class="visually-hidden">New Folder</span>
                             </button>
                             <div class="dropdown">
-                                <button class="btn btn-sm btn-outline-warning p-2" type="button" data-bs-toggle="dropdown" aria-expanded="false" title="More actions">⋮</button>
+                                <button class="btn btn-sm btn-fill-secondary fw-bold p-2" type="button" data-bs-toggle="dropdown" aria-expanded="false" title="More actions">⋮</button>
                                 <ul class="dropdown-menu dropdown-menu-end">
                                     <li><a class="dropdown-item small" href="#" id="btn-export">⬇ Export Collections</a></li>
                                     <li><a class="dropdown-item small" href="#" id="btn-import-trigger">⬆ Import Collections</a></li>
@@ -83,7 +95,7 @@
                         <h4 class="mb-2">API Request Builder</h4>
                         <p class="mb-3">Select a request from the sidebar to get started.</p>
                         <div class="d-flex gap-2">
-                            <button class="btn btn-outline-warning" id="btn-empty-try-it-out" title="Load a sample collection with httpbin.org requests">Try it out!</button>
+                            <button class="btn base-btn" id="btn-empty-try-it-out" title="Load a sample collection with httpbin.org requests">Try it out!</button>
                         </div>
                         <p class="small mt-3 text-muted opacity-75">Need ideas? <strong>Try it out!</strong> imports a free sample collection.</p>
                     </div>
@@ -99,8 +111,8 @@
                                 <option value="DELETE">DELETE</option>
                             </select>
                             <input type="text" class="form-control" id="editor-url" placeholder="https://api.example.com/endpoint">
-                            <button class="btn btn-warning" id="btn-send" disabled>Send</button>
-                            <button class="btn btn-outline-warning" id="btn-save">Save</button>
+                            <button class="btn base-btn" id="btn-send" disabled>Send</button>
+                            <button class="btn base-btn" id="btn-save">Save</button>
                         </div>
 
                         <!-- Validation message -->
@@ -125,7 +137,7 @@
                             <div class="tab-pane fade show active p-3" id="panel-headers" role="tabpanel">
                                 <div class="d-flex justify-content-between align-items-center mb-2">
                                     <div class="dropdown">
-                                        <button class="btn btn-sm btn-outline-warning dropdown-toggle" type="button" data-bs-toggle="dropdown">Presets</button>
+                                        <button class="btn btn-sm base-btn dropdown-toggle" type="button" data-bs-toggle="dropdown">Presets</button>
                                         <ul class="dropdown-menu" id="header-presets">
                                             <li><a class="dropdown-item" href="#" data-key="Content-Type" data-value="application/json">Content-Type: application/json</a></li>
                                             <li><a class="dropdown-item" href="#" data-key="Authorization" data-value="Bearer ">Authorization: Bearer</a></li>
@@ -133,7 +145,7 @@
                                             <li><a class="dropdown-item" href="#" data-key="X-API-Key" data-value="">X-API-Key</a></li>
                                         </ul>
                                     </div>
-                                    <button class="btn btn-sm btn-outline-warning" id="btn-add-header">+ Add Header</button>
+                                    <button class="btn btn-sm base-btn" id="btn-add-header">+ Add Header</button>
                                 </div>
                                 <div id="headers-table-container">
                                     <!-- Header rows rendered by JS -->
@@ -141,7 +153,7 @@
                             </div>
                             <div class="tab-pane fade p-3" id="panel-params" role="tabpanel">
                                 <div class="d-flex justify-content-end mb-2">
-                                    <button class="btn btn-sm btn-outline-warning" id="btn-add-param">+ Add Param</button>
+                                    <button class="btn btn-sm base-btn" id="btn-add-param">+ Add Param</button>
                                 </div>
                                 <div id="params-table-container">
                                     <!-- Param rows rendered by JS -->
@@ -154,7 +166,7 @@
                             <div class="tab-pane fade p-3" id="panel-body" role="tabpanel">
                                 <div class="d-flex justify-content-between align-items-center mb-2">
                                     <small class="text-muted">Raw JSON body</small>
-                                    <button class="btn btn-sm btn-outline-warning" id="btn-format-body">Format JSON</button>
+                                    <button class="btn btn-sm base-btn" id="btn-format-body">Format JSON</button>
                                 </div>
                                 <textarea class="form-control body-editor font-monospace" id="body-editor" rows="12" placeholder='{\n  "key": "value"\n}'></textarea>
                                 <div id="body-validation" class="text-danger small mt-2 d-none"></div>
@@ -167,7 +179,7 @@
 
                                 <!-- Loading state -->
                                 <div id="response-loading" class="d-none text-center py-5">
-                                    <div class="spinner-border spinner-border-sm text-warning me-2" role="status" aria-hidden="true"></div>
+                                    <div class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></div>
                                     <span class="text-muted small">Sending request…</span>
                                 </div>
 
@@ -188,7 +200,7 @@
                                         <span id="response-time" class="text-muted small"></span>
                                         <span class="text-muted">·</span>
                                         <span id="response-size" class="text-muted small"></span>
-                                        <button class="btn btn-sm btn-outline-warning ms-auto" id="btn-copy-response">Copy</button>
+                                        <button class="btn btn-sm base-btn ms-auto" id="btn-copy-response">Copy</button>
                                     </div>
 
                                     <!-- Response headers (collapsible) -->
@@ -220,17 +232,17 @@
     <!-- Create Folder Modal -->
     <div class="modal fade" id="createFolderModal" tabindex="-1" aria-labelledby="createFolderModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-sm">
-            <div class="modal-content border-warning">
-                <div class="modal-header border-warning">
+            <div class="modal-content">
+                <div class="modal-header">
                     <h5 class="modal-title" id="createFolderModalLabel">New Folder</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <input type="text" class="form-control" id="folder-name-input" placeholder="Folder name" maxlength="50">
                 </div>
-                <div class="modal-footer border-warning">
+                <div class="modal-footer">
                     <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-warning btn-sm" id="btn-confirm-folder">Create</button>
+                    <button type="button" class="btn base-btn btn-sm" id="btn-confirm-folder">Create</button>
                 </div>
             </div>
         </div>
@@ -239,8 +251,8 @@
     <!-- Create Request Modal -->
     <div class="modal fade" id="createRequestModal" tabindex="-1" aria-labelledby="createRequestModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-sm">
-            <div class="modal-content border-warning">
-                <div class="modal-header border-warning">
+            <div class="modal-content">
+                <div class="modal-header">
                     <h5 class="modal-title" id="createRequestModalLabel">New Request</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -253,9 +265,9 @@
                         <option value="DELETE">DELETE</option>
                     </select>
                 </div>
-                <div class="modal-footer border-warning">
+                <div class="modal-footer">
                     <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-warning btn-sm" id="btn-confirm-request">Create</button>
+                    <button type="button" class="btn base-btn btn-sm" id="btn-confirm-request">Create</button>
                 </div>
             </div>
         </div>
@@ -264,17 +276,17 @@
     <!-- Rename Modal -->
     <div class="modal fade" id="renameModal" tabindex="-1" aria-labelledby="renameModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-sm">
-            <div class="modal-content border-warning">
-                <div class="modal-header border-warning">
+            <div class="modal-content">
+                <div class="modal-header">
                     <h5 class="modal-title" id="renameModalLabel">Rename</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <input type="text" class="form-control" id="rename-input" placeholder="New name" maxlength="50">
                 </div>
-                <div class="modal-footer border-warning">
+                <div class="modal-footer">
                     <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-warning btn-sm" id="btn-confirm-rename">Rename</button>
+                    <button type="button" class="btn base-btn btn-sm" id="btn-confirm-rename">Rename</button>
                 </div>
             </div>
         </div>
@@ -283,8 +295,8 @@
     <!-- Import Collections Modal -->
     <div class="modal fade" id="importModal" tabindex="-1" aria-labelledby="importModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content border-warning">
-                <div class="modal-header border-warning">
+            <div class="modal-content">
+                <div class="modal-header">
                     <h5 class="modal-title" id="importModalLabel">Import Collections</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -292,7 +304,7 @@
                     <p id="import-preview" class="small text-muted mb-3"></p>
                     <p class="small mb-3">How would you like to import?</p>
                     <div class="d-grid gap-2">
-                        <button class="btn btn-warning btn-sm" id="btn-import-merge">
+                        <button class="btn base-btn btn-sm" id="btn-import-merge">
                             Merge — add to existing collections
                         </button>
                         <button class="btn btn-outline-danger btn-sm" id="btn-import-replace">
@@ -300,7 +312,7 @@
                         </button>
                     </div>
                 </div>
-                <div class="modal-footer border-warning">
+                <div class="modal-footer">
                     <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
                 </div>
             </div>
@@ -310,8 +322,8 @@
     <!-- Try It Out Modal -->
     <div class="modal fade" id="tryItOutModal" tabindex="-1" aria-labelledby="tryItOutModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content border-warning">
-                <div class="modal-header border-warning">
+            <div class="modal-content">
+                <div class="modal-header">
                     <h5 class="modal-title" id="tryItOutModalLabel">Try it out!</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -324,10 +336,10 @@
                     </p>
                     <textarea class="form-control font-monospace small" id="try-it-out-json" rows="14" readonly spellcheck="false"></textarea>
                 </div>
-                <div class="modal-footer border-warning">
+                <div class="modal-footer">
                     <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-outline-warning btn-sm" id="btn-copy-example">Copy JSON</button>
-                    <button type="button" class="btn btn-warning btn-sm" id="btn-import-example">Import into App</button>
+                    <button type="button" class="btn base-btn btn-sm" id="btn-copy-example">Copy JSON</button>
+                    <button type="button" class="btn base-btn btn-sm" id="btn-import-example">Import into App</button>
                 </div>
             </div>
         </div>
@@ -369,9 +381,13 @@
         <symbol id="folder-fill" viewBox="0 0 16 16">
             <path d="M14.5 2H7.71l-.85-.85L6.51 1h-5l-.5.5v11l.5.5H7v-1H1.99V6h4.49l.35-.15.86-.86H14v1.5l-.001.51h1.011V2.5L14.5 2zm-.51 2h-6.5l-.35.15-.86.86H2v-3h4.29l.85.85.36.15H14l-.01.99zM13 16h-1v-3H9v-1h3V9h1v3h3v1h-3v3z"/>
         </symbol>
+        <symbol id="gear-fill" viewBox="0 0 16 16">
+            <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"/>
+        </symbol>
     </svg>
 
     <script src="../assets/js/theme.js"></script>
+    <script src="../assets/js/accent.js"></script>
     <script src="../assets/js/api-storage.js"></script>
     <script src="../assets/js/api-builder.js"></script>
 </body>

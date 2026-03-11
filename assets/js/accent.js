@@ -1,12 +1,12 @@
 /* Accent color switcher — persists to localStorage, syncs across pages */
 
 const ACCENT_PRESETS = [
+    { name: 'Emerald', value: '#10b981', hover: '#059669' },
     { name: 'Violet',  value: '#8b5cf6', hover: '#7c3aed' },
     { name: 'Cyan',    value: '#0dcaf0', hover: '#0aa5cc' },
     { name: 'Blue',    value: '#3b82f6', hover: '#2563eb' },
-    { name: 'Emerald', value: '#10b981', hover: '#059669' },
     { name: 'Coral',   value: '#f97316', hover: '#ea6d10' },
-    { name: 'Amber',   value: '#ffc107', hover: '#ffb300' },
+    { name: 'Amber',   value: '#ffc107', hover: '#f3ab03' },
 ];
 
 function hexToRgba(hex, alpha) {

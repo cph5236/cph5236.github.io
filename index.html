@@ -20,11 +20,10 @@
     <nav class="navbar navbar-dark navbar-expand-lg fixed-top" id="main-nav">
         <div class="container-fluid px-4">
             <a class="navbar-brand fw-bold fs-4" href="#about" data-target="about">CH</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" id="nav-toggle" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <div class="navbar-collapse justify-content-end" id="navbarNav">
                 <div class="navbar-nav gap-2 align-items-center">
                     <button class="btn nav-btn" data-target="about">ABOUT</button>
                     <button class="btn nav-btn" data-target="skills">SKILLS</button>
@@ -255,6 +254,7 @@
     </svg>
 
     <script src="assets/js/theme.js"></script>
+    <div class="nav-backdrop" id="nav-backdrop"></div>
     <script src="assets/js/accent.js"></script>
     <script src="assets/js/nav.js"></script>
 </body>

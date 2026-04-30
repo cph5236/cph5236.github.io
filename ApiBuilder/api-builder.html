@@ -26,33 +26,6 @@
                 <div class="navbar-nav gap-2 align-items-center">
                     <button class="btn nav-btn" id="btn-try-it-out">Try it out!</button>
                     <a class="btn nav-btn" href="../index.html#projects">BACK TO PORTFOLIO</a>
-                    <div class="dropdown">
-                        <button class="btn settings-btn" id="settings-btn"
-                                data-bs-toggle="dropdown" data-bs-auto-close="outside"
-                                aria-expanded="false" title="Settings">
-                            <svg class="bi" width="1.1em" height="1.1em">
-                                <use class="btn-icon" href="#gear-fill"></use>
-                            </svg>
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-end settings-dropdown" aria-labelledby="settings-btn">
-                            <div class="settings-section-title">Theme</div>
-                            <div class="btn-group w-100" role="group" aria-label="Page Theme toggle">
-                                <input type="radio" class="btn-check" name="btnradio" id="LightTheme" autocomplete="off">
-                                <label class="btn theme-toggle-btn flex-grow-1" for="LightTheme">
-                                    <svg class="bi" width="1em" height="1em"><use href="#sun-fill"></use></svg>
-                                    Light
-                                </label>
-                                <input type="radio" class="btn-check" name="btnradio" id="DarkTheme" autocomplete="off" checked>
-                                <label class="btn theme-toggle-btn flex-grow-1" for="DarkTheme">
-                                    <svg class="bi" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
-                                    Dark
-                                </label>
-                            </div>
-                            <hr class="my-2" style="border-color: var(--accent-dim)">
-                            <div class="settings-section-title">Accent Color</div>
-                            <div id="accent-picker-container" class="mt-1"></div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -386,8 +359,6 @@
         </symbol>
     </svg>
 
-    <script src="../assets/js/theme.js"></script>
-    <script src="../assets/js/accent.js"></script>
     <script src="../assets/js/api-storage.js"></script>
     <script src="../assets/js/api-builder.js"></script>
 </body>

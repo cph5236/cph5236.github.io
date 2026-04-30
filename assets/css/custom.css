@@ -14,8 +14,8 @@
     --accent-hover:   #059669;
     --accent-dim:     rgba(16, 185, 129, 0.12);
     --text-primary:   #e6edf3;
-    --text-secondary: #8b949e;
-    --text-muted:     #484f58;
+    --text-secondary: #9aa3ad;
+    --text-muted:     #6e7681;
 }
 
 /* ── BASE ──────────────────────────────────────────────── */
@@ -27,7 +27,7 @@ body {
     background: var(--bg-base);
     color: var(--text-primary);
     font-family: 'DM Sans', system-ui, sans-serif;
-    font-size: 15px;
+    font-size: 16px;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     padding-top: 56px;
@@ -117,7 +117,7 @@ body {
 /* ── SECTION TYPOGRAPHY ────────────────────────────────── */
 .section-label {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
+    font-size: 11px;
     letter-spacing: 3px;
     text-transform: uppercase;
     color: var(--accent);
@@ -135,8 +135,8 @@ body {
 }
 
 .section-subtitle {
-    font-size: 14px;
-    color: var(--text-muted);
+    font-size: 15px;
+    color: var(--text-secondary);
     margin-bottom: 48px;
     font-weight: 300;
 }
@@ -153,7 +153,7 @@ body {
 }
 
 .hero-subtitle {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 300;
     color: var(--text-secondary);
     margin-bottom: 24px;
@@ -176,7 +176,7 @@ body {
 }
 
 .hero-contacts a {
-    font-size: 13px;
+    font-size: 14px;
     color: var(--text-secondary);
     text-decoration: none;
     border-bottom: 1px solid var(--border);
@@ -198,7 +198,7 @@ body {
 /* ── ABOUT GRID (education + experience) ───────────────── */
 .about-block-label {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
+    font-size: 11px;
     letter-spacing: 3px;
     text-transform: uppercase;
     color: var(--accent);
@@ -206,7 +206,7 @@ body {
 }
 
 .about-block h3 {
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 600;
     color: var(--text-primary);
     margin-bottom: 4px;
@@ -214,7 +214,7 @@ body {
 }
 
 .about-block p {
-    font-size: 13px;
+    font-size: 14px;
     color: var(--text-secondary);
     line-height: 1.7;
     font-weight: 300;
@@ -222,7 +222,7 @@ body {
 }
 
 .about-block .detail {
-    font-size: 12px;
+    font-size: 13px;
     color: var(--text-muted);
     margin-top: 4px;
 }
@@ -232,7 +232,7 @@ body {
 
 .skill-group-name {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
+    font-size: 11px;
     font-weight: 600;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -248,7 +248,7 @@ body {
 
 .skill-tag {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
+    font-size: 13px;
     color: var(--text-secondary);
     background: var(--bg-card);
     border: 1px solid var(--border);
@@ -294,7 +294,7 @@ body {
 .project-tag {
     display: inline-block;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
+    font-size: 11px;
     letter-spacing: 1px;
     text-transform: uppercase;
     color: var(--accent);
@@ -302,7 +302,7 @@ body {
 }
 
 .project-card h3 {
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 600;
     color: var(--text-primary);
     margin-bottom: 10px;
@@ -310,7 +310,7 @@ body {
 }
 
 .project-card p {
-    font-size: 13px;
+    font-size: 14px;
     color: var(--text-secondary);
     line-height: 1.7;
     font-weight: 300;
@@ -376,7 +376,7 @@ footer {
 }
 
 footer p {
-    font-size: 12px;
+    font-size: 13px;
     color: var(--text-muted);
     margin: 0;
 }

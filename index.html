@@ -115,72 +115,36 @@
         </section>
 
         <!-- Projects Section -->
-        <section id="projects" class="py-5">
-            <div class="container">
-                <div class="text-center mb-5">
-                    <p class="section-label">Projects</p>
-                    <h2 class="display-5 fw-bold mb-3">Featured Projects</h2>
-                    <p class="lead text-muted">Highlights of past work and coding experience</p>
-                </div>
+        <section id="projects">
+            <div class="page-section">
+                <p class="section-label">Projects</p>
+                <h2 class="section-title">Featured Work</h2>
+                <p class="section-subtitle">Highlights of past work and coding experience</p>
 
-                <div class="container overflow-hidden text-center">
-                    <div class="row gy-5 p-4">
-                        <div class="col-12 col-md-6 col-lg-4">
-                            <div class="card h-100 transition-all">
-                                <div class="card-body p-4 d-flex flex-column">
-                                    <h5 class="card-title mb-3 fs-5">Current Role: SessionM Loyalty Platform</h5>
-                                    <p class="card-text">
-                                        Senior Software Engineer at Mastercard SessionM building scalable backend APIs
-                                        and distributed systems that power enterprise loyalty and incentive platforms
-                                        for global brands. Focused on system architecture, cloud infrastructure, and
-                                        large-scale client migrations while maintaining highly reliable production
-                                        environments.
-                                    </p>
-                                    <div class="mt-auto text-center">
-                                        <button class="btn base-btn btn-sm" id="view-resume" data-target="cv">View
-                                            Full Resume</button>
-                                    </div>
-                                </div>
-                            </div>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <span class="project-tag">Current Role</span>
+                        <h3>SessionM Loyalty Platform</h3>
+                        <p>Senior Software Engineer at Mastercard building scalable backend APIs and distributed systems for enterprise loyalty and incentive platforms.</p>
+                        <div class="project-links">
+                            <button class="btn-primary-accent" id="view-resume" data-target="cv">View Full Resume</button>
                         </div>
-                        <div class="col-12 col-md-6 col-lg-4">
-                            <div class="card h-100 transition-all">
-                                <div class="card-body p-4 d-flex flex-column">
-                                    <h5 class="card-title mb-3 fs-5">API Builder</h5>
-
-                                    <p class="card-text">
-                                        A client-side Postman-like API request builder built with vanilla JavaScript,
-                                        Bootstrap 5, and localStorage for persistence.
-                                    </p>
-
-                                    <div class="mt-auto text-center">
-                                        <a class="btn base-btn btn-sm" href="ApiBuilder/api-builder.html">
-                                            Try out API Query Builder
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
+                    </div>
+                    <div class="project-card">
+                        <span class="project-tag">Side Project</span>
+                        <h3>API Builder</h3>
+                        <p>A client-side Postman-like API request builder built with vanilla JavaScript, Bootstrap 5, and localStorage for persistence.</p>
+                        <div class="project-links">
+                            <a class="btn-primary-accent" href="ApiBuilder/api-builder.html">Try API Query Builder</a>
                         </div>
-                        <div class="col-12 col-md-6 col-lg-4">
-                            <div class="card h-100 transition-all">
-                                <div class="card-body p-4 d-flex flex-column">
-                                    <h5 class="card-title mb-3 fs-5">Simple Weather Service</h5>
-
-                                    <p class="card-text">
-                                        A simple and clean weather app built with React and Vite. Available as a
-                                        React Native app on the Google Play Store.
-                                    </p>
-
-                                    <div class="mt-auto text-center d-flex flex-column gap-2">
-                                        <a class="btn base-btn btn-sm" href="https://cph5236.github.io/SimpleWeatherService/" target="_blank" rel="noopener noreferrer">
-                                            View Web App
-                                        </a>
-                                        <a class="btn base-btn btn-sm" href="https://play.google.com/store/apps/details?id=com.cph5236.simpleweatherservice&pcampaignid=web_share" target="_blank" rel="noopener noreferrer">
-                                            Google Play Store
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
+                    </div>
+                    <div class="project-card">
+                        <span class="project-tag">Side Project</span>
+                        <h3>Simple Weather Service</h3>
+                        <p>A clean weather app built with React and Vite. Available as a React Native app on the Google Play Store.</p>
+                        <div class="project-links">
+                            <a class="btn-primary-accent" href="https://cph5236.github.io/SimpleWeatherService/" target="_blank" rel="noopener noreferrer">View Web App</a>
+                            <a class="btn-ghost" href="https://play.google.com/store/apps/details?id=com.cph5236.simpleweatherservice&pcampaignid=web_share" target="_blank" rel="noopener noreferrer">Google Play Store</a>
                         </div>
                     </div>
                 </div>
@@ -204,8 +168,8 @@
     </div>
 
     <!-- Footer -->
-    <footer class="bg-section text-center py-4 mt-auto border-top border-secondary">
-        <p class="mb-0">&copy; 2026 Connor Hanlin. All Rights Reserved</p>
+    <footer>
+        <p>&copy; 2026 Connor Hanlin. All Rights Reserved.</p>
     </footer>
 
     <div class="nav-backdrop" id="nav-backdrop"></div>

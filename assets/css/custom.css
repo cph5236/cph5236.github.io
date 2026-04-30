@@ -92,6 +92,7 @@ body {
     margin: 0 auto;
     padding: 100px 40px 90px;
     border-bottom: 1px solid var(--border);
+    text-align: center;
 }
 
 .about-grid {
@@ -142,6 +143,10 @@ body {
 }
 
 /* ── HERO ──────────────────────────────────────────────── */
+section#about {
+    width: 100%;
+}
+
 .hero-name {
     font-family: 'DM Serif Display', Georgia, serif;
     font-size: clamp(52px, 7vw, 80px);
@@ -164,7 +169,7 @@ body {
     color: var(--text-secondary);
     line-height: 1.75;
     max-width: 560px;
-    margin-bottom: 32px;
+    margin: 0 auto 32px;
     font-weight: 300;
 }
 
@@ -173,6 +178,7 @@ body {
     gap: 20px;
     flex-wrap: wrap;
     align-items: center;
+    justify-content: center;
 }
 
 .hero-contacts a {

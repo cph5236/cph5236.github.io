@@ -6,209 +6,150 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connor Hanlin Portfolio</title>
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <!-- Bootstrap 5.3 -->
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- Custom styles -->
-    <link rel="stylesheet" href="assets/css/custom.css">
+    <link rel="stylesheet" href="assets/css/custom.css?v=4">
 </head>
 
 <body class="d-flex flex-column min-vh-100">
     <!-- Navigation -->
     <nav class="navbar navbar-dark navbar-expand-lg fixed-top" id="main-nav">
         <div class="container-fluid px-4">
-            <a class="navbar-brand fw-bold fs-4" href="#about" data-target="about">CH</a>
-            <button class="navbar-toggler" type="button" id="nav-toggle" aria-label="Toggle navigation">
+            <a class="navbar-brand fw-bold" href="#about" data-target="about">CH</a>
+            <button class="navbar-toggler border-0" type="button" id="nav-toggle" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="navbar-collapse justify-content-end" id="navbarNav">
                 <div class="navbar-nav gap-2 align-items-center">
-                    <button class="btn nav-btn" data-target="about">ABOUT</button>
-                    <button class="btn nav-btn" data-target="skills">SKILLS</button>
-                    <button class="btn nav-btn" data-target="projects">PROJECTS</button>
+                    <button class="btn nav-btn" data-target="about">About</button>
+                    <button class="btn nav-btn" data-target="skills">Skills</button>
+                    <button class="btn nav-btn" data-target="projects">Projects</button>
                     <button class="btn nav-btn" data-target="cv">CV</button>
-                    <div class="dropdown">
-                        <button class="btn settings-btn" id="settings-btn"
-                                data-bs-toggle="dropdown" data-bs-auto-close="outside"
-                                aria-expanded="false" title="Settings">
-                            <svg class="bi btn-icon" width="1.1em" height="1.1em">
-                                <use href="#gear-fill"></use>
-                            </svg>
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-end settings-dropdown" aria-labelledby="settings-btn">
-                            <div class="settings-section-title">Theme</div>
-                            <div class="btn-group w-100" role="group" aria-label="Page Theme toggle">
-                                <input type="radio" class="btn-check" name="btnradio" id="LightTheme" autocomplete="off">
-                                <label class="btn theme-toggle-btn flex-grow-1" for="LightTheme">
-                                    <svg class="bi" width="1em" height="1em"><use href="#sun-fill"></use></svg>
-                                </label>
-                                <input type="radio" class="btn-check" name="btnradio" id="DarkTheme" autocomplete="off" checked>
-                                <label class="btn theme-toggle-btn flex-grow-1" for="DarkTheme">
-                                    <svg class="bi" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
-                                </label>
-                            </div>
-                            <hr class="my-2" style="border-color: var(--accent-dim)">
-                            <div class="settings-section-title">Accent Color</div>
-                            <div id="accent-picker-container" class="mt-1"></div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
     </nav>
     <main class="flex-grow-1">
-        <!-- Hero/About Section -->
-        <section id="about" class="hero py-5">
-            <div class="container py-5">
-                <div class="row justify-content-center">
-                    <div class="col-lg-10 col-xl-8 text-center">
-                        <p class="section-label">About</p>
-                        <h1 class="display-4 fw-bold mb-4">Connor Hanlin</h1>
-                        <p class="mb-4 text-muted">
-                            Software Engineering graduate from Pennsylvania State University (Class of 2020), passionate
-                            about backend systems, cloud architecture, and game development.
-                        </p>
-                        <p class="mb-5">
-                            <strong>(814) 873‑9072</strong> • <a href="mailto:HanlinConnor@gmail.com"
-                                class="text-decoration-none">HanlinConnor@gmail.com</a> • <a
-                                href="https://linkedin.com/in/connor-hanlin" target="_blank"
-                                class="text-decoration-none">LinkedIn</a> •
-                                <a href="https://github.com/cph5236/cph5236.github.io" target="_blank"
-                                class="text-decoration-none">GitHub</a>
-                        </p>
-
-                        <!-- Education -->
-                        <div class="row g-4 mt-2">
-                            <div class="col-md-6">
-                                <h5 class="mb-3">Education</h5>
-                                <p class="mb-0">
-                                    <strong>Pennsylvania State University</strong><br />
-                                    B.S. Software Engineering<br />
-                                    <small class="text-muted">Minor in Game Development/Design<br />Class of
-                                        2020</small>
-                                </p>
-                            </div>
-                            <div class="col-md-6">
-                                <h5 class="mb-3">Experience Overview</h5>
-                                <p class="mb-0">
-                                    <strong>Senior Software Engineer</strong> at Mastercard (SessionM)<br />
-                                    <small class="text-muted">Since March 2022<br />Designing scalable backend platforms
-                                        and leading client migrations.</small>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+        <!-- About / Hero Section -->
+        <section id="about">
+            <div class="hero-section">
+                <p class="section-label">About</p>
+                <h1 class="hero-name">Connor Hanlin</h1>
+                <p class="hero-subtitle">Senior Software Engineer</p>
+                <p class="hero-bio">
+                    Software Engineering graduate from Pennsylvania State University (Class of 2020),
+                    passionate about backend systems, cloud architecture, and game development.
+                </p>
+                <div class="hero-contacts">
+                    <a href="tel:8148739072">(814) 873‑9072</a>
+                    <span class="sep">·</span>
+                    <a href="mailto:HanlinConnor@gmail.com">HanlinConnor@gmail.com</a>
+                    <span class="sep">·</span>
+                    <a href="https://linkedin.com/in/connor-hanlin" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <span class="sep">·</span>
+                    <a href="https://github.com/cph5236/cph5236.github.io" target="_blank" rel="noopener noreferrer">GitHub</a>
+                </div>
+            </div>
+            <div class="about-grid">
+                <div class="about-block">
+                    <div class="about-block-label">Education</div>
+                    <h3>Pennsylvania State University</h3>
+                    <p>B.S. Software Engineering</p>
+                    <p class="detail">Minor in Game Development/Design · Class of 2020</p>
+                </div>
+                <div class="about-block">
+                    <div class="about-block-label">Experience</div>
+                    <h3>Senior Software Engineer at SessionM <span style="font-weight:300;color:var(--text-muted);font-size:13px">(SessionM)</span></h3>
+                    <p>Designing scalable backend platforms and leading client migrations.</p>
+                    <p class="detail">Since March 2022</p>
                 </div>
             </div>
         </section>
 
         <!-- Skills Section -->
-        <section id="skills" class="py-5 bg-section">
-            <div class="container">
-                <div class="text-center mb-5">
-                    <p class="section-label">Skills</p>
-                    <h2 class="display-5 fw-bold mb-3">Skills</h2>
-                    <p class="lead text-muted">Technical expertise and tools I work with</p>
+        <section id="skills">
+            <div class="page-section">
+                <p class="section-label">Skills</p>
+                <h2 class="section-title">Technical Stack</h2>
+                <p class="section-subtitle">Languages, frameworks, and tools I work with</p>
+
+                <div class="skill-group">
+                    <div class="skill-group-name">Languages &amp; Frameworks</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag primary">C#</span>
+                        <span class="skill-tag primary">JavaScript / TypeScript</span>
+                        <span class="skill-tag primary">AWS SDK</span>
+                        <span class="skill-tag primary">.NET Core</span>
+                        <span class="skill-tag primary">LINQ</span>
+                        <span class="skill-tag primary">SQL Server</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">Bootstrap</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                    </div>
                 </div>
 
-                <div class="row g-4 justify-content-center">
-                    <div class="col-lg-5">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <h5 class="card-title mb-4">Languages &amp; Frameworks</h5>
-                                <ul class="list-unstyled">
-                                    <li class="mb-2">✓ C#, Python, JavaScript/TypeScript, Java</li>
-                                    <li class="mb-2">✓ AWS Services, Bootstrap, .NET Core</li>
-                                    <li>✓ LINQ, SQL Server, PostgreSQL</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-5">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <h5 class="card-title mb-4">Cloud &amp; DevOps Tools</h5>
-                                <ul class="list-unstyled">
-                                    <li class="mb-2">✓ AWS, Azure, Docker, DynamoDB</li>
-                                    <li class="mb-2">✓ CI/CD pipelines, Gitlab, API design, Terraform</li>
-                                    <li>✓ Distributed systems, Git, GitHub, Jira</li>
-                                </ul>
-                            </div>
-                        </div>
+                <div class="skill-group">
+                    <div class="skill-group-name">Cloud &amp; DevOps</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag primary">AWS</span>
+                        <span class="skill-tag primary">Docker</span>
+                        <span class="skill-tag primary">DynamoDB</span>
+                        <span class="skill-tag primary">Lambda</span>
+                        <span class="skill-tag">Azure</span>
+                        <span class="skill-tag">Cloudflare</span>
+                        <span class="skill-tag">ECS</span>
+                        <span class="skill-tag">SQS</span>
+                        <span class="skill-tag">RDS</span>
+                        <span class="skill-tag">CI/CD Pipelines</span>
+                        <span class="skill-tag">GitLab</span>
+                        <span class="skill-tag">API Design</span>
+                        <span class="skill-tag">Terraform</span>
+                        <span class="skill-tag">Distributed Systems</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">GitHub</span>
+                        <span class="skill-tag">Jira</span>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Projects Section -->
-        <section id="projects" class="py-5">
-            <div class="container">
-                <div class="text-center mb-5">
-                    <p class="section-label">Projects</p>
-                    <h2 class="display-5 fw-bold mb-3">Featured Projects</h2>
-                    <p class="lead text-muted">Highlights of past work and coding experience</p>
-                </div>
+        <section id="projects">
+            <div class="page-section">
+                <p class="section-label">Projects</p>
+                <h2 class="section-title">Featured Work</h2>
+                <p class="section-subtitle">Highlights of past work and coding experience</p>
 
-                <div class="container overflow-hidden text-center">
-                    <div class="row gy-5 p-4">
-                        <div class="col-12 col-md-6 col-lg-4">
-                            <div class="card h-100 transition-all">
-                                <div class="card-body p-4 d-flex flex-column">
-                                    <h5 class="card-title mb-3 fs-5">Current Role: SessionM Loyalty Platform</h5>
-                                    <p class="card-text">
-                                        Senior Software Engineer at Mastercard SessionM building scalable backend APIs
-                                        and distributed systems that power enterprise loyalty and incentive platforms
-                                        for global brands. Focused on system architecture, cloud infrastructure, and
-                                        large-scale client migrations while maintaining highly reliable production
-                                        environments.
-                                    </p>
-                                    <div class="mt-auto text-center">
-                                        <button class="btn base-btn btn-sm" id="view-resume" data-target="cv">View
-                                            Full Resume</button>
-                                    </div>
-                                </div>
-                            </div>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <span class="project-tag">Current Role</span>
+                        <h3>SessionM Loyalty Platform</h3>
+                        <p>Senior Software Engineer at SessionM building scalable backend APIs and distributed systems for enterprise loyalty and incentive platforms.</p>
+                        <div class="project-links">
+                            <button class="btn-primary-accent" id="view-resume" data-target="cv">View Full Resume</button>
                         </div>
-                        <div class="col-12 col-md-6 col-lg-4">
-                            <div class="card h-100 transition-all">
-                                <div class="card-body p-4 d-flex flex-column">
-                                    <h5 class="card-title mb-3 fs-5">API Builder</h5>
-
-                                    <p class="card-text">
-                                        A client-side Postman-like API request builder built with vanilla JavaScript,
-                                        Bootstrap 5, and localStorage for persistence.
-                                    </p>
-
-                                    <div class="mt-auto text-center">
-                                        <a class="btn base-btn btn-sm" href="ApiBuilder/api-builder.html">
-                                            Try out API Query Builder
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
+                    </div>
+                    <div class="project-card">
+                        <span class="project-tag">Side Project</span>
+                        <h3>API Builder</h3>
+                        <p>A client-side Postman-like API request builder built with vanilla JavaScript, Bootstrap 5, and localStorage for persistence.</p>
+                        <div class="project-links">
+                            <a class="btn-primary-accent" href="ApiBuilder/api-builder.html">Try API Query Builder</a>
                         </div>
-                        <div class="col-12 col-md-6 col-lg-4">
-                            <div class="card h-100 transition-all">
-                                <div class="card-body p-4 d-flex flex-column">
-                                    <h5 class="card-title mb-3 fs-5">Simple Weather Service</h5>
-
-                                    <p class="card-text">
-                                        A simple and clean weather app built with React and Vite. Available as a
-                                        React Native app on the Google Play Store.
-                                    </p>
-
-                                    <div class="mt-auto text-center d-flex flex-column gap-2">
-                                        <a class="btn base-btn btn-sm" href="https://cph5236.github.io/SimpleWeatherService/" target="_blank" rel="noopener noreferrer">
-                                            View Web App
-                                        </a>
-                                        <button class="btn btn-secondary btn-sm" disabled>
-                                            Google Play Store (Coming Soon)
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
+                    </div>
+                    <div class="project-card">
+                        <span class="project-tag">Side Project</span>
+                        <h3>Simple Weather Service</h3>
+                        <p>A clean weather app built with React and Vite. Available as a React Native app on the Google Play Store.</p>
+                        <div class="project-links">
+                            <a class="btn-primary-accent" href="https://cph5236.github.io/SimpleWeatherService/" target="_blank" rel="noopener noreferrer">View Web App</a>
+                            <a class="btn-primary-accent" href="https://play.google.com/store/apps/details?id=com.cph5236.simpleweatherservice&pcampaignid=web_share" target="_blank" rel="noopener noreferrer">Free on the Play Store</a>
                         </div>
                     </div>
                 </div>
@@ -232,30 +173,11 @@
     </div>
 
     <!-- Footer -->
-    <footer class="bg-section text-center py-4 mt-auto border-top border-secondary">
-        <p class="mb-0">&copy; 2026 Connor Hanlin. All Rights Reserved</p>
+    <footer>
+        <p>&copy; 2026 Connor Hanlin. All Rights Reserved.</p>
     </footer>
 
-    <!-- SVG Icons for theme switcher (hidden from view) -->
-    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
-        <symbol id="sun-fill" viewBox="0 0 16 16">
-            <path
-                d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0V.5A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2a.5.5 0 0 1 .5-.5zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z" />
-        </symbol>
-        <symbol id="moon-stars-fill" viewBox="0 0 16 16">
-            <path
-                d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.367 2.052 1.534 4.822.525a.773.773 0 0 1 1.178.278z" />
-            <path
-                d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z" />
-        </symbol>
-        <symbol id="gear-fill" viewBox="0 0 16 16">
-            <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"/>
-        </symbol>
-    </svg>
-
-    <script src="assets/js/theme.js"></script>
     <div class="nav-backdrop" id="nav-backdrop"></div>
-    <script src="assets/js/accent.js"></script>
     <script src="assets/js/nav.js"></script>
 </body>
 

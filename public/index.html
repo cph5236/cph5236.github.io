@@ -4,181 +4,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connor Hanlin Portfolio</title>
-    <!-- Google Fonts -->
+    <title>Hanlin Software — games &amp; apps</title>
+    <meta name="description" content="Hanlin Software is an independent studio making games and apps: Craft Brewery Simulator, Heap, and Simple Weather Service.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Hanlin Software — games &amp; apps">
+    <meta property="og:description" content="An independent studio making games and apps: Craft Brewery Simulator, Heap, and Simple Weather Service.">
+    <meta property="og:image" content="https://hanlinsoftware.com/assets/img/brand/og-default.png">
+    <meta property="og:url" content="https://hanlinsoftware.com/">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://hanlinsoftware.com/">
+    <link rel="icon" href="/assets/img/brand/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="/assets/img/brand/favicon-32.png" sizes="32x32" type="image/png">
+    <link rel="apple-touch-icon" href="/assets/img/brand/apple-touch-icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <!-- Bootstrap 5.3 -->
-    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- Custom styles -->
-    <link rel="stylesheet" href="assets/css/custom.css?v=4">
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500;600;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/studio.css?v=1">
+    <link rel="stylesheet" href="/assets/css/products.css?v=1">
 </head>
 
-<body class="d-flex flex-column min-vh-100">
-    <!-- Navigation -->
-    <nav class="navbar navbar-dark navbar-expand-lg fixed-top" id="main-nav">
-        <div class="container-fluid px-4">
-            <a class="navbar-brand fw-bold" href="#about" data-target="about">CH</a>
-            <button class="navbar-toggler border-0" type="button" id="nav-toggle" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="navbar-collapse justify-content-end" id="navbarNav">
-                <div class="navbar-nav gap-2 align-items-center">
-                    <button class="btn nav-btn" data-target="about">About</button>
-                    <button class="btn nav-btn" data-target="skills">Skills</button>
-                    <button class="btn nav-btn" data-target="projects">Projects</button>
-                    <button class="btn nav-btn" data-target="cv">CV</button>
-                </div>
-            </div>
-        </div>
+<body class="studio">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <nav class="studio-nav" aria-label="Site">
+        <a class="studio-logo" href="/" aria-label="Hanlin Software home"><span class="bh"><span class="br">]</span>-<span class="br">[</span></span><span class="long">anlin<span class="dim">.software</span></span><span class="cur" aria-hidden="true"></span></a>
+        <div class="studio-links"><a href="/#products">Products</a><a href="/about/">About</a><a href="mailto:hanlinsoftwareSWS@gmail.com">Contact</a></div>
     </nav>
-    <main class="flex-grow-1">
-        <!-- About / Hero Section -->
-        <section id="about">
-            <div class="hero-section">
-                <p class="section-label">About</p>
-                <h1 class="hero-name">Connor Hanlin</h1>
-                <p class="hero-subtitle">Senior Software Engineer</p>
-                <p class="hero-bio">
-                    Software Engineering graduate from Pennsylvania State University (Class of 2020),
-                    passionate about backend systems, cloud architecture, and game development.
-                </p>
-                <div class="hero-contacts">
-                    <a href="tel:8148739072">(814) 873‑9072</a>
-                    <span class="sep">·</span>
-                    <a href="mailto:HanlinConnor@gmail.com">HanlinConnor@gmail.com</a>
-                    <span class="sep">·</span>
-                    <a href="https://linkedin.com/in/connor-hanlin" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                    <span class="sep">·</span>
-                    <a href="https://github.com/cph5236/cph5236.github.io" target="_blank" rel="noopener noreferrer">GitHub</a>
-                </div>
+
+    <main id="main">
+        <header class="studio-hero">
+            <p class="kicker">Independent studio · Games &amp; apps</p>
+            <h1 class="studio-logo" aria-label="Hanlin Software"><span class="bh"><span class="br">]</span>-<span class="br">[</span></span><span class="long">anlin<span class="dim">.software</span></span><span class="cur" aria-hidden="true"></span></h1>
+            <p class="lede">We make <strong>games</strong> and <strong>apps</strong> that are easy to pick up and built to last, from a cozy brewery sim to a trash heap the whole world climbs together.</p>
+            <div class="actions">
+                <a class="studio-btn" href="#products">See our products</a>
+                <a class="studio-btn ghost" href="mailto:hanlinsoftwareSWS@gmail.com">Get in touch</a>
             </div>
-            <div class="about-grid">
-                <div class="about-block">
-                    <div class="about-block-label">Education</div>
-                    <h3>Pennsylvania State University</h3>
-                    <p>B.S. Software Engineering</p>
-                    <p class="detail">Minor in Game Development/Design · Class of 2020</p>
-                </div>
-                <div class="about-block">
-                    <div class="about-block-label">Experience</div>
-                    <h3>Senior Software Engineer at SessionM <span style="font-weight:300;color:var(--text-muted);font-size:13px">(SessionM)</span></h3>
-                    <p>Designing scalable backend platforms and leading client migrations.</p>
-                    <p class="detail">Since March 2022</p>
-                </div>
+        </header>
+
+        <section id="products" aria-labelledby="products-title">
+            <div class="products-head">
+                <h2 id="products-title">Products</h2>
+                <span>3 titles</span>
             </div>
+
+            <!-- Craft Brewery Simulator -->
+            <article class="band band-brewery" aria-labelledby="cbs-title">
+                <div class="band-art">
+                    <img class="cover" src="/assets/img/brewery/keyart_craft_brewery-960.jpg"
+                        srcset="/assets/img/brewery/keyart_craft_brewery-960.jpg 960w, /assets/img/brewery/keyart_craft_brewery.jpg 1920w"
+                        sizes="(max-width: 860px) 100vw, 55vw"
+                        alt="A cozy brick brewhouse with copper kettles, steel fermenters and brewers at work">
+                </div>
+                <div class="band-body">
+                    <p class="band-meta">PC · Steam · Early Access</p>
+                    <h3 id="cbs-title" class="m-0"><img class="band-logo" src="/assets/img/brewery/logo.png" alt="Craft Brewery Simulator" width="720" height="349"></h3>
+                    <p>Brew beer by hand, pour it in your own taproom and grow a one-kettle warehouse into the brewery that supplies the whole town. Alone or with up to 3 friends in online co-op.</p>
+                    <div class="band-actions">
+                        <span class="pbtn steam-btn is-soon" role="note">Coming soon to Steam</span>
+                        <a class="band-more" href="/brewery-simulator/">More →</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Heap -->
+            <article class="band band-heap flip" aria-labelledby="heap-title">
+                <div class="band-art">
+                    <img class="cover" src="/assets/img/heap/keyart-960.jpg"
+                        srcset="/assets/img/heap/keyart-960.jpg 960w, /assets/img/heap/keyart.jpg 1920w"
+                        sizes="(max-width: 860px) 100vw, 55vw"
+                        alt="A trash bag climber on top of a towering junk heap at dusk, coins and vultures in the sky"
+                        loading="lazy">
+                </div>
+                <div class="band-body">
+                    <p class="band-meta">Free · Web · Android · itch.io</p>
+                    <div class="heap-title">
+                        <img src="/assets/img/heap/icon.png" alt="" width="72" height="72" loading="lazy">
+                        <h3 id="heap-title">Heap</h3>
+                    </div>
+                    <p><span class="tag">A pile of trash that everyone is building.</span> Climb community-built trash heaps, top them out to leave junk behind for the next player, and chase a high score.</p>
+                    <div class="band-actions">
+                        <a class="pbtn" href="https://heapgame.com/play" target="_blank" rel="noopener noreferrer">Play free in browser</a>
+                        <a class="pbtn alt" href="https://play.google.com/store/apps/details?id=com.hanlinsoftware.heapgame.app" target="_blank" rel="noopener noreferrer">Google Play</a>
+                        <a class="band-more" href="/heap/">More →</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Simple Weather Service -->
+            <article class="band band-weather" aria-labelledby="sws-title">
+                <div class="band-art">
+                    <div class="phone"><img src="/assets/img/weather/shots/current.jpg" alt="Simple Weather Service showing current conditions and a 24-hour forecast" loading="lazy"></div>
+                    <div class="phone raise"><img src="/assets/img/weather/shots/ten-day.jpg" alt="Simple Weather Service 10-day forecast" loading="lazy"></div>
+                </div>
+                <div class="band-body">
+                    <p class="band-meta">Free · Web · Android</p>
+                    <div class="sws-title">
+                        <img src="/assets/img/weather/icon.png" alt="" width="56" height="56" loading="lazy">
+                        <h3 id="sws-title">Simple Weather Service</h3>
+                    </div>
+                    <p>A no-bloat weather app. Current conditions, the next 24 hours and a 10-day forecast. No ads, no clutter.</p>
+                    <div class="band-actions">
+                        <a class="pbtn" href="https://cph5236.github.io/SimpleWeatherService/" target="_blank" rel="noopener noreferrer">Open web app</a>
+                        <a class="pbtn alt" href="https://play.google.com/store/apps/details?id=com.cph5236.simpleweatherservice" target="_blank" rel="noopener noreferrer">Google Play</a>
+                        <a class="band-more" href="/simple-weather/">More →</a>
+                    </div>
+                </div>
+            </article>
         </section>
 
-        <!-- Skills Section -->
-        <section id="skills">
-            <div class="page-section">
-                <p class="section-label">Skills</p>
-                <h2 class="section-title">Technical Stack</h2>
-                <p class="section-subtitle">Languages, frameworks, and tools I work with</p>
-
-                <div class="skill-group">
-                    <div class="skill-group-name">Languages &amp; Frameworks</div>
-                    <div class="skill-tags">
-                        <span class="skill-tag primary">C#</span>
-                        <span class="skill-tag primary">JavaScript / TypeScript</span>
-                        <span class="skill-tag primary">AWS SDK</span>
-                        <span class="skill-tag primary">.NET Core</span>
-                        <span class="skill-tag primary">LINQ</span>
-                        <span class="skill-tag primary">SQL Server</span>
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">Java</span>
-                        <span class="skill-tag">Bootstrap</span>
-                        <span class="skill-tag">PostgreSQL</span>
-                    </div>
-                </div>
-
-                <div class="skill-group">
-                    <div class="skill-group-name">Cloud &amp; DevOps</div>
-                    <div class="skill-tags">
-                        <span class="skill-tag primary">AWS</span>
-                        <span class="skill-tag primary">Docker</span>
-                        <span class="skill-tag primary">DynamoDB</span>
-                        <span class="skill-tag primary">Lambda</span>
-                        <span class="skill-tag">Azure</span>
-                        <span class="skill-tag">Cloudflare</span>
-                        <span class="skill-tag">ECS</span>
-                        <span class="skill-tag">SQS</span>
-                        <span class="skill-tag">RDS</span>
-                        <span class="skill-tag">CI/CD Pipelines</span>
-                        <span class="skill-tag">GitLab</span>
-                        <span class="skill-tag">API Design</span>
-                        <span class="skill-tag">Terraform</span>
-                        <span class="skill-tag">Distributed Systems</span>
-                        <span class="skill-tag">Git</span>
-                        <span class="skill-tag">GitHub</span>
-                        <span class="skill-tag">Jira</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects">
-            <div class="page-section">
-                <p class="section-label">Projects</p>
-                <h2 class="section-title">Featured Work</h2>
-                <p class="section-subtitle">Highlights of past work and coding experience</p>
-
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <span class="project-tag">Current Role</span>
-                        <h3>SessionM Loyalty Platform</h3>
-                        <p>Senior Software Engineer at SessionM building scalable backend APIs and distributed systems for enterprise loyalty and incentive platforms.</p>
-                        <div class="project-links">
-                            <button class="btn-primary-accent" id="view-resume" data-target="cv">View Full Resume</button>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <span class="project-tag">Side Project</span>
-                        <h3>API Builder</h3>
-                        <p>A client-side Postman-like API request builder built with vanilla JavaScript, Bootstrap 5, and localStorage for persistence.</p>
-                        <div class="project-links">
-                            <a class="btn-primary-accent" href="ApiBuilder/api-builder.html">Try API Query Builder</a>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <span class="project-tag">Side Project</span>
-                        <h3>Simple Weather Service</h3>
-                        <p>A clean weather app built with React and Vite. Available as a React Native app on the Google Play Store.</p>
-                        <div class="project-links">
-                            <a class="btn-primary-accent" href="https://cph5236.github.io/SimpleWeatherService/" target="_blank" rel="noopener noreferrer">View Web App</a>
-                            <a class="btn-primary-accent" href="https://play.google.com/store/apps/details?id=com.cph5236.simpleweatherservice&pcampaignid=web_share" target="_blank" rel="noopener noreferrer">Free on the Play Store</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <section class="contact-strip" id="contact" aria-labelledby="contact-title">
+            <h2 id="contact-title"><span class="br">&gt;</span> get_in_touch</h2>
+            <p>Questions about a product, business enquiries, or press — send an email and we'll get back to you.</p>
+            <a class="mail" href="mailto:hanlinsoftwareSWS@gmail.com">hanlinsoftwareSWS@gmail.com</a>
         </section>
     </main>
 
-    <!-- Resume Modal -->
-    <div class="modal fade" id="resumeModal" tabindex="-1" aria-labelledby="resumeModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-xl">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="resumeModalLabel">Curriculum Vitae</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body p-0" style="height: 80vh;">
-                    <embed id="resumeEmbed" src="" type="application/pdf" width="100%" height="100%">
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 Connor Hanlin. All Rights Reserved.</p>
+    <footer class="studio-footer">
+        <a href="mailto:hanlinsoftwareSWS@gmail.com">hanlinsoftwareSWS@gmail.com</a>
+        <nav aria-label="Footer"><a href="/#products">Products</a><a href="/about/">About</a></nav>
+        <span>&copy; 2026 Hanlin Software</span>
     </footer>
 
-    <div class="nav-backdrop" id="nav-backdrop"></div>
-    <script src="assets/js/nav.js"></script>
+    <script src="/assets/js/steam.js"></script>
 </body>
 
 </html>

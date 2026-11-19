@@ -96,6 +96,7 @@ body.studio {
     display: flex; flex-wrap: wrap; gap: 12px 32px; align-items: center; justify-content: space-between;
     font-family: var(--studio-mono); font-size: 14px; color: var(--studio-muted);
     background: var(--studio-bg);
+    max-width: none; margin: 0;
 }
 .studio-footer a { color: var(--studio-text); text-decoration: none; }
 .studio-footer a:hover { color: var(--studio-accent); }

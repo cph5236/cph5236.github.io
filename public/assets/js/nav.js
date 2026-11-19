@@ -1,4 +1,4 @@
-// ===== Portfolio Navigation =====
+// ===== About page section navigation =====
 document.addEventListener('DOMContentLoaded', function() {
     // select all elements that can trigger navigation or resume modal
     const buttons = document.querySelectorAll('.nav-btn, #view-resume');
@@ -10,22 +10,26 @@ document.addEventListener('DOMContentLoaded', function() {
     const backdrop  = document.getElementById('nav-backdrop');
 
     function openMenu() {
+        if (!navMenu) return;
         navMenu.classList.add('drawer-open');
         backdrop.classList.add('show');
         navToggle.classList.add('is-open');
         document.body.style.overflow = 'hidden';
     }
     function closeMenu() {
+        if (!navMenu) return;
         navMenu.classList.remove('drawer-open');
         backdrop.classList.remove('show');
         navToggle.classList.remove('is-open');
         document.body.style.overflow = '';
     }
 
-    navToggle.addEventListener('click', () =>
-        navMenu.classList.contains('drawer-open') ? closeMenu() : openMenu()
-    );
-    backdrop.addEventListener('click', closeMenu);
+    if (navToggle && navMenu && backdrop) {
+        navToggle.addEventListener('click', () =>
+            navMenu.classList.contains('drawer-open') ? closeMenu() : openMenu()
+        );
+        backdrop.addEventListener('click', closeMenu);
+    }
     document.addEventListener('keydown', e => e.key === 'Escape' && closeMenu());
 
     function activateNav(id) {
@@ -46,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const target = btn.dataset.target;
             if (target === 'cv') {
                 const embed = document.getElementById('resumeEmbed');
-                embed.src = 'cv.pdf';
+                embed.src = '/cv.pdf';
                 const modalEl = document.getElementById('resumeModal');
                 const modal = new bootstrap.Modal(modalEl);
                 modal.show();

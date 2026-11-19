@@ -489,3 +489,24 @@ footer p {
         grid-template-columns: 1fr;
     }
 }
+
+/* ── ABOUT PAGE INSIDE THE STUDIO FRAME ─────────────────── */
+.about-page {
+    --bg-base:        var(--studio-bg);
+    --bg-card:        var(--studio-panel);
+    --border-accent:  rgba(245, 180, 58, 0.35);
+    --accent:         var(--studio-accent);
+    --accent-hover:   #e0a024;
+    --accent-dim:     rgba(245, 180, 58, 0.12);
+    padding-top: 0;
+}
+.about-subnav {
+    position: sticky; top: var(--studio-nav-h); z-index: 999;
+    display: flex; justify-content: center; gap: 8px; flex-wrap: wrap;
+    padding: 8px 16px;
+    background: color-mix(in srgb, var(--studio-bg) 88%, transparent);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+}
+.about-page section { scroll-margin-top: calc(var(--studio-nav-h) + 52px); }

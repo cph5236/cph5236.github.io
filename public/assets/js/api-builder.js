@@ -213,7 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const methodClass = METHOD_COLORS[req.method] || 'text-secondary';
                 reqEl.innerHTML = `
                     <div class="d-flex align-items-center gap-2 overflow-hidden">
-                        <span class="method-badge ${methodClass} fw-bold small flex-shrink-0">${req.method}</span>
+                        <span class="method-badge ${methodClass} fw-bold small flex-shrink-0">${escapeHtml(req.method)}</span>
                         <span class="request-name small text-truncate">${escapeHtml(req.name)}</span>
                     </div>
                     <div class="d-flex gap-1 request-actions flex-shrink-0">

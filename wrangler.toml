@@ -1,0 +1,4 @@
+# Cloudflare Pages build config (Git-connected project).
+# `name` must match the Pages project name in the Cloudflare dashboard.
+name = "hanlinsoftware"
+pages_build_output_dir = "public"

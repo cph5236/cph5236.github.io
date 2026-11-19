@@ -64,16 +64,27 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // highlight nav on scroll
-    window.addEventListener('scroll', () => {
-        let current = '';
+    // A section is current once its top reaches the bottom of the sticky
+    // header(s), measured live since the header height differs by page/width.
+    function headerBottom() {
+        const bars = document.querySelectorAll('.studio-nav, .about-subnav, #main-nav');
+        return Math.max(0, ...[...bars].map(b => b.getBoundingClientRect().bottom));
+    }
+
+    function updateActive() {
+        const line = headerBottom() + 40;
+        let current = sections.length ? sections[0].id : '';
         sections.forEach(sec => {
-            const top = sec.offsetTop - 80;
-            if (window.scrollY >= top) {
-                current = sec.id;
-            }
+            if (sec.getBoundingClientRect().top <= line) current = sec.id;
         });
+        // At the bottom of the page the last section can't scroll any higher
+        if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2 && sections.length) {
+            current = sections[sections.length - 1].id;
+        }
         if (current) activateNav(current);
-    });
+    }
+
+    window.addEventListener('scroll', updateActive, { passive: true });
 
     // deep link at load
     if (window.location.hash) {

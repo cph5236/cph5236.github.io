@@ -509,7 +509,8 @@ footer p {
     -webkit-backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border);
 }
-.about-page section { scroll-margin-top: calc(var(--studio-nav-h) + 52px); }
+/* html already has scroll-padding-top for the studio nav (studio.css); add the sub-nav */
+.about-page section { scroll-margin-top: 52px; }
 
 /* ── ABOUT: PROJECTS (revamp) ──────────────────────────── */
 .project-group {

@@ -21,8 +21,8 @@
     <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- Styles -->
-    <link rel="stylesheet" href="/assets/css/custom.css?v=5">
-    <link rel="stylesheet" href="/assets/css/studio.css?v=1">
+    <link rel="stylesheet" href="/assets/css/custom.css?v=6">
+    <link rel="stylesheet" href="/assets/css/studio.css?v=2">
 </head>
 
 <body class="studio about-page d-flex flex-column min-vh-100">
@@ -124,36 +124,75 @@
         <section id="projects">
             <div class="page-section">
                 <p class="section-label">Projects</p>
-                <h2 class="section-title">Featured Work</h2>
-                <p class="section-subtitle">Highlights of past work and coding experience</p>
+                <h2 class="section-title">What I'm Building</h2>
+                <p class="section-subtitle">Games and apps I make under Hanlin Software, plus engineering work</p>
 
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <span class="project-tag">Current Role</span>
-                        <h3>SessionM Loyalty Platform</h3>
-                        <p>Senior Software Engineer at SessionM building scalable backend APIs and distributed systems for enterprise loyalty and incentive platforms.</p>
-                        <div class="project-links">
-                            <button class="btn-primary-accent" id="view-resume" data-target="cv">View Full Resume</button>
+                <h3 class="project-group">Hanlin Software</h3>
+                <div class="products-grid">
+                    <article class="pcard pcard-feature">
+                        <a class="pcard-art" href="/brewery-simulator/"><img src="/assets/img/brewery/keyart_craft_brewery-960.jpg" alt="Craft Brewery Simulator brewhouse with copper kettles and fermenters" width="960" height="540" loading="lazy"></a>
+                        <div class="pcard-body">
+                            <span class="project-tag">Game · In development</span>
+                            <h3>Craft Brewery Simulator</h3>
+                            <p>A cozy first-person brewery sim for PC: brew by hand, run your own taproom and grow a one-kettle warehouse into the brewery that supplies the whole town, solo or in online co-op for up to 4. Heading to Steam Early Access.</p>
+                            <ul class="stack"><li>Unreal Engine 5</li><li>C++</li><li>Blueprints</li><li>Online co-op</li></ul>
+                            <div class="pcard-links">
+                                <a class="btn-primary-accent" href="/brewery-simulator/">Product page</a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="project-card">
-                        <span class="project-tag">Side Project</span>
-                        <h3>API Builder</h3>
-                        <p>A client-side Postman-like API request builder built with vanilla JavaScript, Bootstrap 5, and localStorage for persistence.</p>
-                        <div class="project-links">
-                            <a class="btn-primary-accent" href="/ApiBuilder/api-builder.html">Try API Query Builder</a>
+                    </article>
+                    <article class="pcard">
+                        <a class="pcard-art" href="/heap/"><img src="/assets/img/heap/keyart-960.jpg" alt="Heap: a trash-bag climber atop a towering junk heap at dusk" width="960" height="540" loading="lazy"></a>
+                        <div class="pcard-body">
+                            <span class="project-tag">Game · Released</span>
+                            <h3>Heap</h3>
+                            <p>A free roguelite climbing platformer on a trash heap every player builds together, with a persistent shared world and global leaderboards.</p>
+                            <ul class="stack"><li>Phaser 3</li><li>TypeScript</li><li>Cloudflare Workers</li><li>D1</li></ul>
+                            <div class="pcard-links">
+                                <a class="btn-primary-accent" href="/heap/">Product page</a>
+                                <a class="btn-ghost-sm" href="https://heapgame.com/play" target="_blank" rel="noopener noreferrer">Play</a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="project-card">
-                        <span class="project-tag">Side Project</span>
-                        <h3>Simple Weather Service</h3>
-                        <p>A clean weather app built with React and Vite. Available as a React Native app on the Google Play Store.</p>
-                        <div class="project-links">
-                            <a class="btn-primary-accent" href="/simple-weather/">Product Page</a>
-                            <a class="btn-primary-accent" href="https://cph5236.github.io/SimpleWeatherService/" target="_blank" rel="noopener noreferrer">View Web App</a>
-                            <a class="btn-primary-accent" href="https://play.google.com/store/apps/details?id=com.cph5236.simpleweatherservice&pcampaignid=web_share" target="_blank" rel="noopener noreferrer">Free on the Play Store</a>
+                    </article>
+                    <article class="pcard">
+                        <a class="pcard-art pcard-art-weather" href="/simple-weather/"><img src="/assets/img/weather/icon.png" alt="Simple Weather Service app icon" width="256" height="256" loading="lazy"></a>
+                        <div class="pcard-body">
+                            <span class="project-tag">App · Released</span>
+                            <h3>Simple Weather Service</h3>
+                            <p>A no-bloat weather app: current conditions, hourly outlook, radar and a 10-day forecast. On the web and Google Play.</p>
+                            <ul class="stack"><li>React</li><li>TypeScript</li><li>Vite</li><li>Capacitor</li></ul>
+                            <div class="pcard-links">
+                                <a class="btn-primary-accent" href="/simple-weather/">Product page</a>
+                                <a class="btn-ghost-sm" href="https://cph5236.github.io/SimpleWeatherService/" target="_blank" rel="noopener noreferrer">Web app</a>
+                            </div>
                         </div>
-                    </div>
+                    </article>
+                </div>
+
+                <h3 class="project-group">Engineering</h3>
+                <div class="eng-grid">
+                    <article class="pcard pcard-plain">
+                        <div class="pcard-body">
+                            <span class="project-tag">Current role</span>
+                            <h3>SessionM Loyalty Platform</h3>
+                            <p>Senior Software Engineer building scalable backend APIs and distributed systems for enterprise loyalty and incentive platforms.</p>
+                            <ul class="stack"><li>C#</li><li>.NET Core</li><li>AWS</li><li>Distributed systems</li></ul>
+                            <div class="pcard-links">
+                                <button class="btn-primary-accent" id="view-resume" data-target="cv">View full resume</button>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="pcard pcard-plain">
+                        <div class="pcard-body">
+                            <span class="project-tag">Side project</span>
+                            <h3>API Builder</h3>
+                            <p>A client-side, Postman-style API request builder: folders, headers, params, JSON bodies, timed responses and JSON import/export, all stored in the browser.</p>
+                            <ul class="stack"><li>JavaScript</li><li>Bootstrap 5</li><li>Fetch API</li><li>localStorage</li></ul>
+                            <div class="pcard-links">
+                                <a class="btn-primary-accent" href="/ApiBuilder/api-builder.html">Try it</a>
+                            </div>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
@@ -177,10 +216,11 @@
     <footer class="studio-footer">
         <a href="mailto:hanlinsoftwareSWS@gmail.com">hanlinsoftwareSWS@gmail.com</a>
         <nav aria-label="Footer"><a href="/#products">Products</a><a href="/about/">About</a></nav>
-        <span>&copy; 2026 Hanlin Software</span>
+        <span>&copy; 2026 HanlinSoftware LLC</span>
     </footer>
 
     <script src="/assets/js/nav.js"></script>
+    <script src="/assets/js/contact.js"></script>
 </body>
 
 </html>

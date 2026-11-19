@@ -1,0 +1,18 @@
+/* ===== Heap theme =====
+   Matches heapgame.com: dark junkyard, amber + mint, monospace. */
+body.product-heap {
+    --p-bg: #1a1a1a; --p-panel: #20202a; --p-line: #33333f;
+    --p-text: #c8c8d2; --p-bright: #e8e8ef; --p-muted: #9595a3;
+    --p-accent: #f5a02a; --p-on-accent: #1a1a1a; --p-accent-2: #6ee7a0;
+    --p-head-font: ui-monospace, 'SF Mono', Menlo, Consolas, 'JetBrains Mono', monospace;
+    --p-body-font: ui-monospace, 'SF Mono', Menlo, Consolas, 'JetBrains Mono', monospace;
+    --p-hero-shade: linear-gradient(90deg, rgba(26,26,26,.7) 0%, rgba(26,26,26,.15) 55%, transparent 100%), linear-gradient(180deg, rgba(26,26,26,0) 30%, rgba(26,26,26,.75) 70%, #1a1a1a 100%);
+    --p-radius: 8px;
+}
+.product-heap .p-hero h1 { display: flex; align-items: center; gap: 18px; font-size: clamp(56px, 10vw, 112px); font-weight: 800; letter-spacing: -.03em; }
+.product-heap .p-hero h1 img { width: clamp(64px, 9vw, 104px); height: auto; border-radius: 22%; }
+.product-heap .tagline { color: #f5a02a; font-weight: 700; font-size: clamp(18px, 2.4vw, 24px); margin: 0; }
+.product-heap .p-feature h3 { font-size: 16px; letter-spacing: .08em; text-transform: uppercase; color: #f5a02a; }
+.product-heap .gallery a { border-radius: 18px; border: 3px solid #33333f; }
+.product-heap .closing { color: #6ee7a0; font-weight: 700; font-size: 18px; margin: 32px 0 0; }
+.product-heap .gallery.portrait { grid-template-columns: repeat(auto-fit, minmax(118px, 1fr)); }

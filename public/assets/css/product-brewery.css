@@ -1,0 +1,28 @@
+/* ===== Craft Brewery Simulator theme =====
+   From BrwerySim docs/design/ui-style.md (BreweryUIStyle). */
+body.product-brewery {
+    --p-bg: #2B211A; --p-panel: #3a2c21; --p-line: #4F3017;
+    --p-text: #eadfc8; --p-bright: #FAF3E0; --p-muted: #c9b89a;
+    --p-accent: #E3B04B; --p-on-accent: #2B211A; --p-accent-2: #9CC08A;
+    --p-head-font: 'Alfa Slab One', Georgia, serif; --p-body-font: 'Nunito', system-ui, sans-serif;
+    --p-button-font: 'Alfa Slab One', Georgia, serif;
+    --p-hero-shade: linear-gradient(90deg, rgba(43,33,26,.75) 0%, rgba(43,33,26,.2) 60%, transparent 100%), linear-gradient(180deg, rgba(43,33,26,.1) 0%, rgba(43,33,26,.35) 45%, rgba(43,33,26,.95) 100%);
+    --p-radius: 10px;
+}
+.product-brewery .p-hero h1 img { width: min(460px, 86vw); height: auto; filter: drop-shadow(0 8px 24px rgba(0,0,0,.45)); }
+.product-brewery .p-btn { font-weight: 400; letter-spacing: .03em; }
+
+/* Paper section: the game's cream UI panels */
+.product-brewery .paper { background: #F7EED9; color: #2B211A; }
+.product-brewery .paper .p-section > h2 { color: #4F3017; }
+.product-brewery .paper .p-sub { color: #6E553C; }
+.product-brewery .paper .p-feature { background: #FAF3E0; border: 2px solid #e4d3ad; box-shadow: 0 2px 0 #e4d3ad; }
+.product-brewery .paper .p-feature h3 { color: #8A572C; }
+.product-brewery .paper .p-feature p { color: #2B211A; }
+.product-brewery .ea {
+    border: 2px dashed #E3B04B; border-radius: 12px; padding: 24px; background: #3a2c21;
+}
+.product-brewery .ea h3 { font-family: 'Alfa Slab One', serif; color: #E3B04B; margin: 0 0 10px; font-size: 22px; }
+.product-brewery .ea p { margin: 0 0 10px; line-height: 1.6; }
+.product-brewery .ea p:last-child { margin: 0; }
+.product-brewery .hop-rule { height: 6px; background: repeating-linear-gradient(90deg, #8A572C 0 24px, #4F3017 24px 48px); }

@@ -1,0 +1,33 @@
+/* ===== Simple Weather Service theme =====
+   From SWS_App/src/index.css (light theme tokens). */
+body.product-weather {
+    --p-bg: #eff6ff; --p-panel: #ffffff; --p-line: #e2e8f0;
+    --p-text: #334155; --p-bright: #1e293b; --p-muted: #64748b;
+    --p-accent: #1d4ed8; --p-on-accent: #ffffff; --p-accent-2: #1d4ed8;
+    --p-head-font: system-ui, -apple-system, 'Segoe UI', Roboto, Ubuntu, sans-serif;
+    --p-body-font: system-ui, -apple-system, 'Segoe UI', Roboto, Ubuntu, sans-serif;
+    --p-hero-shade: none;
+    --p-radius: 14px;
+}
+.product-weather .p-hero { background: linear-gradient(160deg, #1d4ed8 0%, #1e40af 55%, #0d1b2e 100%); min-height: 0; }
+.product-weather .p-hero-inner { grid-template-columns: 1.1fr 1fr; align-items: center; padding-top: 72px; }
+.product-weather .p-hero .p-meta { color: #bfdbfe; }
+.product-weather .p-hero h1 { color: #fff; font-size: clamp(36px, 5.4vw, 60px); font-weight: 800; display: flex; align-items: center; gap: 16px; }
+.product-weather .p-hero h1 img { width: clamp(56px, 7vw, 80px); height: auto; border-radius: 18px; box-shadow: 0 6px 18px rgba(0,0,0,.25); }
+.product-weather .p-hero .p-pitch { color: #dbeafe; }
+.product-weather .p-hero .p-btn { background: #fff; color: #1d4ed8 !important; border-color: #fff; }
+.product-weather .p-hero .p-btn.alt { background: transparent; color: #fff !important; border-color: rgba(255,255,255,.6); }
+.product-weather .hero-phones { display: flex; gap: 18px; justify-content: center; }
+.product-weather .phone {
+    width: min(220px, 40vw); aspect-ratio: 376 / 844; border-radius: 28px; overflow: hidden;
+    border: 8px solid #0f172a; background: #0f172a; box-shadow: 0 24px 60px rgba(0,0,0,.35);
+}
+.product-weather .phone img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+.product-weather .phone.raise { transform: translateY(-28px); }
+.product-weather .p-feature { box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+.product-weather .p-feature h3 { color: #1d4ed8; }
+@media (max-width: 860px) {
+    .product-weather .p-hero-inner { grid-template-columns: 1fr; padding-top: 48px; }
+    .product-weather .phone { width: min(170px, 42vw); }
+    .product-weather .phone.raise { transform: none; }
+}

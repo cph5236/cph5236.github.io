@@ -1,0 +1,71 @@
+/* ===== Product page layout =====
+   Shared structure for /brewery-simulator/, /heap/, /simple-weather/.
+   Each product-*.css sets the --p-* tokens and adds its own flourishes. */
+
+body.product {
+    background: var(--p-bg); color: var(--p-text);
+    font-family: var(--p-body-font);
+}
+
+/* Hero */
+.p-hero {
+    position: relative; min-height: min(88vh, 820px);
+    display: flex; align-items: flex-end; overflow: hidden;
+    background: var(--p-bg);
+}
+.p-hero > img.bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.p-hero::after { content: ""; position: absolute; inset: 0; background: var(--p-hero-shade); }
+.p-hero-inner {
+    position: relative; z-index: 1; width: 100%; max-width: 1120px; margin: 0 auto;
+    padding: 120px clamp(16px, 4vw, 48px) clamp(40px, 8vh, 80px);
+    display: grid; gap: 20px;
+}
+.p-hero .p-meta { font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--p-accent-2); font-weight: 700; margin: 0; }
+.p-hero h1 { margin: 0; font-family: var(--p-head-font); color: var(--p-bright); line-height: 1; }
+.p-hero .p-pitch { font-size: clamp(18px, 2.2vw, 21px); line-height: 1.55; max-width: 52ch; margin: 0; color: var(--p-text); }
+.p-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+
+/* Buttons */
+.p-btn {
+    display: inline-flex; align-items: center; gap: 8px; text-decoration: none;
+    padding: 13px 22px; border-radius: var(--p-radius, 10px); font-weight: 700; font-size: 16px;
+    background: var(--p-accent); color: var(--p-on-accent) !important; border: 2px solid var(--p-accent);
+    font-family: var(--p-button-font, inherit);
+    transition: transform .15s ease, filter .15s ease;
+}
+.p-btn:hover { transform: translateY(-1px); filter: brightness(1.06); }
+.p-btn.alt { background: transparent; color: var(--p-accent-2) !important; border-color: var(--p-accent-2); }
+.p-btn.is-soon { background: transparent; color: var(--p-accent) !important; border-style: dashed; cursor: default; transform: none; filter: none; }
+
+/* Sections */
+.p-section { max-width: 1120px; margin: 0 auto; padding: clamp(56px, 9vh, 96px) clamp(16px, 4vw, 48px); }
+.p-section + .p-section { padding-top: 0; }
+.p-section > h2 {
+    font-family: var(--p-head-font); color: var(--p-bright);
+    font-size: clamp(28px, 4vw, 40px); margin: 0 0 12px;
+}
+.p-section > .p-sub { color: var(--p-muted); font-size: 18px; margin: 0 0 36px; max-width: 60ch; }
+
+.p-features { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.p-feature {
+    background: var(--p-panel); border: 1px solid var(--p-line); border-radius: var(--p-radius, 12px);
+    padding: 24px;
+}
+.p-feature h3 { font-family: var(--p-head-font); color: var(--p-bright); font-size: 20px; margin: 0 0 10px; line-height: 1.25; }
+.p-feature p { margin: 0; line-height: 1.6; color: var(--p-text); }
+
+/* Gallery: plain list of images; swap files without touching layout */
+.gallery { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); }
+.gallery.portrait { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+.gallery a { display: block; border-radius: var(--p-radius, 10px); overflow: hidden; border: 1px solid var(--p-line); background: var(--p-panel); }
+.gallery img { display: block; width: 100%; height: auto; transition: transform .25s ease; }
+.gallery a:hover img { transform: scale(1.03); }
+
+/* Links / support row */
+.p-links { display: flex; flex-wrap: wrap; gap: 12px 28px; }
+.p-links a { color: var(--p-accent-2); font-weight: 600; }
+
+@media (max-width: 640px) {
+    .p-hero { min-height: 0; }
+    .p-hero-inner { padding-top: 56vw; }
+}

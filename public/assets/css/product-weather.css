@@ -27,7 +27,7 @@ body.product-weather {
 .product-weather .p-feature { box-shadow: 0 1px 4px rgba(0,0,0,.06); }
 .product-weather .p-feature h3 { color: #1d4ed8; }
 @media (max-width: 860px) {
-    .product-weather .p-hero-inner { grid-template-columns: 1fr; padding-top: 48px; }
+    .product-weather .p-hero-inner { grid-template-columns: minmax(0, 1fr); padding-top: 48px; }
     .product-weather .phone { width: min(170px, 42vw); }
     .product-weather .phone.raise { transform: none; }
 }

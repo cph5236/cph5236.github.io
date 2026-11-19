@@ -3,7 +3,7 @@
 
 - every local href/src in public/**/*.html resolves to a file in public/
 - every <img> has an alt attribute (empty alt = decorative)
-- repo internals are not inside public/
+- repo internals (incl. any .md notes) are not inside public/
 
 Usage: python3 tools/check_site.py [site_dir]   (default: public)
 Exit code 0 = all good; failures are printed as "FAIL <page>: <reason>".
@@ -49,6 +49,8 @@ def main() -> int:
     for name in FORBIDDEN:
         if (site / name).exists():
             failures.append(f"FAIL {site}: repo internal '{name}' is published")
+    for doc in sorted(p for p in site.rglob("*") if p.suffix.lower() == ".md"):
+        failures.append(f"FAIL {doc.relative_to(site)}: markdown notes are published")
     for page in sorted(site.rglob("*.html")):
         c = Collector()
         c.feed(page.read_text(encoding="utf-8"))

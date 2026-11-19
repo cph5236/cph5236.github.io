@@ -7,7 +7,12 @@
     <meta http-equiv="refresh" content="0; url=https://hanlinsoftware.com/">
     <link rel="canonical" href="https://hanlinsoftware.com/">
     <meta name="robots" content="noindex">
-    <script>location.replace('https://hanlinsoftware.com' + location.pathname + location.search + location.hash);</script>
+    <script>
+        // Old portfolio sections (/#projects etc.) now live on /about/.
+        var path = location.pathname;
+        if ((path === '/' || path === '/index.html') && /^#(about|skills|projects|cv)$/.test(location.hash)) path = '/about/';
+        location.replace('https://hanlinsoftware.com' + path + location.search + location.hash);
+    </script>
 </head>
 <body>
     <p>This site has moved to <a href="https://hanlinsoftware.com/">hanlinsoftware.com</a>.</p>

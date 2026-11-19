@@ -125,7 +125,7 @@
 
 /* ---- Responsive ---- */
 @media (max-width: 860px) {
-    .band, .band.flip { grid-template-columns: 1fr; min-height: 0; }
+    .band, .band.flip { grid-template-columns: minmax(0, 1fr); min-height: 0; }
     .band.flip .band-art { order: 0; }
     .band-art { min-height: 0; aspect-ratio: 16 / 9; }
     .band-brewery .band-art::after { background: linear-gradient(180deg, transparent 55%, var(--cbs-ink) 100%); }

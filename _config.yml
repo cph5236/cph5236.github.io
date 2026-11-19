@@ -1,0 +1,12 @@
+# GitHub Pages (cph5236.github.io) only serves the redirect stubs
+# (index.html, 404.html). The real site is in public/ on Cloudflare Pages.
+exclude:
+  - public
+  - docs
+  - tools
+  - CLAUDE.md
+  - README.md
+  - wrangler.toml
+  - package.json
+  - package-lock.json
+  - node_modules

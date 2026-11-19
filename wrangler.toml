@@ -1,0 +1,11 @@
+# Cloudflare Workers (static assets) config. Workers Builds runs `wrangler deploy`
+# from this repo. `name` must match the Worker in the Cloudflare dashboard.
+# Only public/ is uploaded; public/_headers is applied by the assets server.
+name = "hanlinsoftware"
+compatibility_date = "2026-11-01"
+
+[assets]
+directory = "./public"
+
+# Required (can be empty) for preview-branch builds, which run `npx wrangler preview`.
+[previews]

@@ -1,36 +1,33 @@
-# ConnorHanlin.github.io
+# hanlinsoftware.com
 
-Personal portfolio website hosted on GitHub Pages. No build system or bundler — all files are served as-is.
+The Hanlin Software studio site: products (Craft Brewery Simulator, Heap, Simple Weather Service), an About page for Connor, and the API Builder side project. Plain static HTML, no build step.
 
-## Stack
+**Live:** https://hanlinsoftware.com (Cloudflare Worker with static assets, Git-connected via Workers Builds). `cph5236.github.io` redirects there.
 
-- **Bootstrap 5.3** (CDN) — layout, theming, modals
-- **Vanilla JS** — theme switching, smooth scroll, nav behavior
-- **localStorage** — client-side persistence
+## Layout
 
-## Running Locally
+| Path | What |
+|---|---|
+| `public/` | **Everything that gets published.** Cloudflare serves only this folder (`wrangler.toml` → `[assets] directory`). |
+| `public/index.html` | Studio homepage with product bands |
+| `public/brewery-simulator/`, `public/heap/`, `public/simple-weather/` | Product pages |
+| `public/about/` | Connor's portfolio (experience, skills, projects, CV) |
+| `public/ApiBuilder/` | API Builder |
+| `public/_headers` | Security headers (CSP etc.) for Cloudflare |
+| `index.html`, `404.html` (root) | GitHub Pages redirect stubs → hanlinsoftware.com, keeping the path |
+| `tools/` | Checks: `check_site.py` (links/alt/leaks), `test_redirect.js` (github.io stubs), `test_ghpages_config.py` (Jekyll excludes). Helpers: `fetch_assets.py` (product art), `make_brand.py` (logo + favicons) |
+| `_config.yml` | Tells GitHub Pages to publish only the redirect stubs |
+| `docs/` | Design spec, plan, Cloudflare setup checklist, CVE report |
+
+## Running locally
 
 ```bash
-python3 -m http.server 8080
+python3 -m http.server 8080 -d public
+python3 tools/check_site.py && node tools/test_redirect.js && python3 tools/test_ghpages_config.py
 ```
 
-Then open `http://localhost:8080` in a browser.
+## Updating things
 
-## Projects
-
-### API Builder (`ApiBuilder/api-builder.html`)
-
-A browser-based, Postman-like API request builder. Entirely client-side — no backend or install required.
-
-**Technologies:** Vanilla JavaScript, Bootstrap 5.3, Fetch API, localStorage
-
-**Capabilities:**
-- Organize requests into folders (create, rename, delete)
-- Build requests with GET, POST, PUT, DELETE methods
-- Configure headers (with common presets), query params, and JSON body
-- Live URL preview showing params appended to the base URL
-- JSON body editor with prettify and validation
-- Send requests via the browser Fetch API with timeout and error handling
-- View color-coded response status, headers, body, and response time
-- Export/import collections as JSON files (merge or replace)
-- Full light/dark theme support shared with the main portfolio
+- **Steam link for Craft Brewery Simulator:** set `STEAM_URL` in `public/assets/js/steam.js`. Every "Coming soon to Steam" button becomes "Wishlist on Steam".
+- **Brewery screenshots (retakes):** `python tools/fetch_assets.py brewery` (needs Pillow and `gh` auth), then check the gallery list in `public/brewery-simulator/index.html`.
+- **Nav / footer:** the markup is duplicated in every page — change all of them.

@@ -15,14 +15,15 @@ The Hanlin Software studio site: products (Craft Brewery Simulator, Heap, Simple
 | `public/ApiBuilder/` | API Builder |
 | `public/_headers` | Security headers (CSP etc.) for Cloudflare Pages |
 | `index.html`, `404.html` (root) | GitHub Pages redirect stubs → hanlinsoftware.com, keeping the path |
-| `tools/` | `check_site.py` (link/alt/leak checker), `fetch_assets.py` (product art), `make_brand.py` (logo + favicons) |
+| `tools/` | Checks: `check_site.py` (links/alt/leaks), `test_redirect.js` (github.io stubs), `test_ghpages_config.py` (Jekyll excludes). Helpers: `fetch_assets.py` (product art), `make_brand.py` (logo + favicons) |
+| `_config.yml` | Tells GitHub Pages to publish only the redirect stubs |
 | `docs/` | Design spec, plan, Cloudflare setup checklist, CVE report |
 
 ## Running locally
 
 ```bash
 python3 -m http.server 8080 -d public
-python3 tools/check_site.py        # must print PASS
+python3 tools/check_site.py python3 tools/check_site.py        # must print PASSpython3 tools/check_site.py        # must print PASS node tools/test_redirect.js && python3 tools/test_ghpages_config.py
 ```
 
 ## Updating things

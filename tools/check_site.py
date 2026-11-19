@@ -2,7 +2,7 @@
 """Static checks for the published site in public/.
 
 - every local href/src in public/**/*.html resolves to a file in public/
-- every <img> has non-empty alt text
+- every <img> has an alt attribute (empty alt = decorative)
 - repo internals are not inside public/
 
 Usage: python3 tools/check_site.py [site_dir]   (default: public)
@@ -27,7 +27,8 @@ class Collector(HTMLParser):
         for key in ("href", "src"):
             if a.get(key):
                 self.refs.append(a[key])
-        if tag == "img" and not (a.get("alt") or "").strip():
+        # alt="" is valid for decorative images; only a missing alt fails
+        if tag == "img" and "alt" not in a:
             self.bad_imgs.append(a.get("src", "?"))
 
 

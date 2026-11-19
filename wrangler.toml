@@ -1,4 +1,8 @@
-# Cloudflare Pages build config (Git-connected project).
-# `name` must match the Pages project name in the Cloudflare dashboard.
+# Cloudflare Workers (static assets) config. Workers Builds runs `wrangler deploy`
+# from this repo. `name` must match the Worker in the Cloudflare dashboard.
+# Only public/ is uploaded; public/_headers is applied by the assets server.
 name = "hanlinsoftware"
-pages_build_output_dir = "public"
+compatibility_date = "2026-11-01"
+
+[assets]
+directory = "./public"

@@ -4,9 +4,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-The **Hanlin Software** studio site, live at https://hanlinsoftware.com on **Cloudflare Pages** (Git-connected; production branch `main`). No build system or bundler — files are served as-is.
+The **Hanlin Software** studio site, live at https://hanlinsoftware.com as a **Cloudflare Worker with static assets** (Workers Builds, Git-connected; production branch `main`). No build system or bundler — files are served as-is.
 
-**Only `public/` is published** (`wrangler.toml` → `pages_build_output_dir = "public"`). Never put repo internals (docs, notes, package files) in `public/`. The root `index.html` / `404.html` are GitHub Pages redirect stubs that send `cph5236.github.io/<path>` to `hanlinsoftware.com/<path>` — not part of the live site.
+**Only `public/` is published** (`wrangler.toml` → `[assets] directory = "./public"`; Workers Builds runs `wrangler deploy`). Never put repo internals (docs, notes, package files) in `public/`. The root `index.html` / `404.html` are GitHub Pages redirect stubs that send `cph5236.github.io/<path>` to `hanlinsoftware.com/<path>` — not part of the live site.
 
 ```bash
 python3 -m http.server 8080 -d public   # preview

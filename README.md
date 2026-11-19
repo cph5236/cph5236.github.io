@@ -2,18 +2,18 @@
 
 The Hanlin Software studio site: products (Craft Brewery Simulator, Heap, Simple Weather Service), an About page for Connor, and the API Builder side project. Plain static HTML, no build step.
 
-**Live:** https://hanlinsoftware.com (Cloudflare Pages, Git-connected to this repo). `cph5236.github.io` redirects there.
+**Live:** https://hanlinsoftware.com (Cloudflare Worker with static assets, Git-connected via Workers Builds). `cph5236.github.io` redirects there.
 
 ## Layout
 
 | Path | What |
 |---|---|
-| `public/` | **Everything that gets published.** Cloudflare serves only this folder (`wrangler.toml` → `pages_build_output_dir`). |
+| `public/` | **Everything that gets published.** Cloudflare serves only this folder (`wrangler.toml` → `[assets] directory`). |
 | `public/index.html` | Studio homepage with product bands |
 | `public/brewery-simulator/`, `public/heap/`, `public/simple-weather/` | Product pages |
 | `public/about/` | Connor's portfolio (experience, skills, projects, CV) |
 | `public/ApiBuilder/` | API Builder |
-| `public/_headers` | Security headers (CSP etc.) for Cloudflare Pages |
+| `public/_headers` | Security headers (CSP etc.) for Cloudflare |
 | `index.html`, `404.html` (root) | GitHub Pages redirect stubs → hanlinsoftware.com, keeping the path |
 | `tools/` | Checks: `check_site.py` (links/alt/leaks), `test_redirect.js` (github.io stubs), `test_ghpages_config.py` (Jekyll excludes). Helpers: `fetch_assets.py` (product art), `make_brand.py` (logo + favicons) |
 | `_config.yml` | Tells GitHub Pages to publish only the redirect stubs |

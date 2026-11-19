@@ -1,29 +1,30 @@
-# Cloudflare Pages setup — hanlinsoftware.com
+# Cloudflare setup — hanlinsoftware.com
 
-Already done (2026-11-19): Pages project created with a Git connection to `cph5236/cph5236.github.io`, `hanlinsoftware.com` attached as a custom domain.
+The site is a **Cloudflare Worker with static assets** named `hanlinsoftware` (Workers & Pages → hanlinsoftware), Git-connected to `cph5236/cph5236.github.io` via Workers Builds. Production branch: `main`. Custom domain `hanlinsoftware.com` is attached.
 
-## 1. Confirm the project name matches `wrangler.toml`
+`wrangler.toml` tells the build to upload only `public/` (`[assets] directory = "./public"`). Its `name` (`hanlinsoftware`) matches the Worker.
 
-`wrangler.toml` tells Cloudflare to publish only `public/`. Its `name` must match the Pages project name.
+## 1. Check the build settings
 
-1. Cloudflare dashboard → **Workers & Pages** → open the project for this site.
-2. The name is in the page title / URL (its preview address is `<name>.pages.dev`, possibly with a suffix like `heap-cax`).
-3. If it isn't `hanlinsoftware`, edit `name = "..."` in `wrangler.toml` to match and commit.
+Worker → **Settings → Build**:
+- **Deploy command:** `npx wrangler deploy` (the default). Root directory: `/` (repo root).
+- **Build command:** empty.
+- **Branch control → Builds for non-production branches:** turn **on**. Non-production branches then run `npx wrangler versions upload` and get a preview URL.
 
 ## 2. Check the preview before merging
 
-Every pushed branch gets a preview: **project → Deployments**, or `https://<branch>.<project>.pages.dev` (branch name lowercased, `/` → `-`, e.g. `feature-hanlinsoftware.<project>.pages.dev`).
+After enabling non-production builds, push to the branch (or hit "Retry" on the build). The preview shows under **Deployments** / the GitHub PR's checks, as a `*-hanlinsoftware.hanlinsoftwaresws.workers.dev` URL. If no preview link appears, turn on **Settings → Domains & Routes → Preview URLs**.
 
 On the preview, check:
-- The new homepage shows (not the old portfolio).
-- `/CLAUDE.md` and `/README.md` return 404 (proves only `public/` is served).
-- Build log (**Deployments → the build → View details**) mentions `pages_build_output_dir` / output `public`.
+- The new studio homepage shows (not the old portfolio).
+- `/CLAUDE.md` and `/README.md` return 404 (proves only `public/` is uploaded).
+- `curl -sI <preview-url>` shows a `content-security-policy` header (proves `_headers` is applied).
 
-If the build ignores `wrangler.toml`: **Settings → Builds → Build configuration → Build output directory = `public`**, build command empty.
+If the build log shows a wrangler config error, paste it to Claude.
 
 ## 3. Add www
 
-1. Project → **Custom domains → Set up a custom domain** → `www.hanlinsoftware.com` → accept the DNS record it offers.
+1. Worker → **Settings → Domains & Routes → Add → Custom domain** → `www.hanlinsoftware.com`.
 2. Redirect www → apex: **hanlinsoftware.com zone → Rules → Redirect Rules → Create rule** → template "Redirect from WWW to root" (301, preserve path and query).
 
 ## 4. After merging to `main`

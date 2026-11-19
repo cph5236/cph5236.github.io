@@ -23,7 +23,7 @@ The Hanlin Software studio site: products (Craft Brewery Simulator, Heap, Simple
 
 ```bash
 python3 -m http.server 8080 -d public
-python3 tools/check_site.py python3 tools/check_site.py        # must print PASSpython3 tools/check_site.py        # must print PASS node tools/test_redirect.js && python3 tools/test_ghpages_config.py
+python3 tools/check_site.py && node tools/test_redirect.js && python3 tools/test_ghpages_config.py
 ```
 
 ## Updating things

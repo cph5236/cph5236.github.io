@@ -114,11 +114,11 @@ Today's portfolio content, largely as-is (hero, education, experience, technical
 
 - Production branch: `main`. Build command: none. **Build output directory: `public`**.
 - **Repo restructure (Claude's call):** move all public files (`index.html`, `about/`, product folders, `ApiBuilder/`, `assets/`, `cv.pdf`, favicon, logo files) into `public/`. Repo internals stay at root and are therefore never published.
-- Custom domains: `hanlinsoftware.com` (primary) and `www.hanlinsoftware.com` → redirect to apex. Assumed the domain is in the same Cloudflare account as Heap — the checklist should verify.
+- Custom domains (apex already attached by Connor): `hanlinsoftware.com` (primary) and `www.hanlinsoftware.com` → redirect to apex. Assumed the domain is in the same Cloudflare account as Heap — the checklist should verify.
 - Add `public/_redirects` / `_headers` only if needed (e.g. old paths). Builder's call.
 - Pages has a ~25 MB per-file limit and serves `node_modules` nothing — ensure no large unneeded files land in `public/`.
 
-**Connor does the dashboard steps.** Deliver a short click-by-click checklist (in the repo, e.g. `docs/cloudflare-setup.md`): create Pages project → connect GitHub repo → settings above → add custom domains → verify. Include how to view branch preview URLs so the redesign can be reviewed before merging to `main`.
+**Connor does any remaining dashboard steps** (see Current state below for what is already done). Include how to view branch preview URLs so the redesign can be reviewed before merging to `main`.
 
 ### Retire GitHub Pages → redirect (decided)
 
@@ -126,14 +126,20 @@ Today's portfolio content, largely as-is (hero, education, experience, technical
 
 **Mechanism (Claude's call):** GitHub Pages keeps serving the repo root of `main` (branch-served, no Actions workflow). Put a small redirect `index.html` and `404.html` at the **repo root** (outside `public/`, so Cloudflare never serves them). Both use `<meta http-equiv="refresh">` plus a one-line script that carries over `location.pathname + search + hash`, and a `rel=canonical` to hanlinsoftware.com. Must **not** set a custom domain on the GitHub Pages user site. `cph5236.github.io/SimpleWeatherService` (separate repo) must keep working — verify after.
 
+### Current state (as of 2026-11-19)
+
+Connor has already created the Cloudflare Pages project with a Git connection and attached `hanlinsoftware.com`. It is live, serving `main` **from the repo root** — so `CLAUDE.md`, `README.md`, `package.json` and `docs/` are currently public (verified with curl). `www.hanlinsoftware.com` does not resolve yet. `cph5236.github.io` still serves the old site from GitHub Pages.
+
+**Output-directory switch (Claude's call):** add a `wrangler.toml` at the repo root with `pages_build_output_dir = "public"` (plus `name` matching the Pages project). Git-connected Pages reads this file, so the switch to `public/` lands atomically with the restructure — no dashboard change to time. Verify on the branch preview that Cloudflare honors it; fall back to the dashboard setting if not. The checklist (`docs/cloudflare-setup.md`) shrinks to: add `www` custom domain (+ redirect to apex via a Redirect Rule or `_redirects`), confirm the domain/SSL, how to find branch previews.
+
 ### Launch order (Claude's call)
 
-Work happens on `redesign/Design1.0` (or a branch off it). Because GitHub Pages serves `main`'s root, the restructure and the redirect stubs land on `main` together, and only after hanlinsoftware.com is live:
+Work happens on `redesign/Design1.0` (or a branch off it). Because both Cloudflare production and GitHub Pages serve `main`, the restructure, `wrangler.toml`, and the redirect stubs land on `main` together:
 
-1. Build on the branch; push it when Connor approves → Cloudflare gives a branch preview URL (needs step 2 done first).
-2. Connor creates the Cloudflare Pages project per the checklist. While `main` is still the old layout, production may fail or show nothing at `public/` — that's fine; review via the branch preview.
-3. Connor approves the preview → merge to `main` → Cloudflare deploys production at hanlinsoftware.com and GitHub Pages starts redirecting, in the same push.
-4. Verify: hanlinsoftware.com, www redirect, `cph5236.github.io/` and `/ApiBuilder/api-builder.html` redirect, `cph5236.github.io/SimpleWeatherService/` still works.
+1. Build on the branch; push it when Connor approves → Cloudflare builds a branch preview URL.
+2. Connor reviews the preview (confirms the repo files are no longer reachable there).
+3. Connor approves → merge to `main` → hanlinsoftware.com switches to the new site and GitHub Pages starts redirecting, in the same push.
+4. Verify: hanlinsoftware.com, `/CLAUDE.md` etc. now 404, www redirect, `cph5236.github.io/` and `/ApiBuilder/api-builder.html` redirect, `cph5236.github.io/SimpleWeatherService/` still works.
 
 Update links that point at the old address (e.g. the GitHub link on About, README, CLAUDE.md).
 

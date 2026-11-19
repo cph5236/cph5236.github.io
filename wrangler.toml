@@ -6,3 +6,6 @@ compatibility_date = "2026-11-01"
 
 [assets]
 directory = "./public"
+
+# Required (can be empty) for preview-branch builds, which run `npx wrangler preview`.
+[previews]
